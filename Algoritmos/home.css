@@ -1,0 +1,48 @@
+.divPai{
+
+
+
+}
+.home{
+    margin-top: 40px;
+    display: flex;
+    justify-content: left;
+    margin-left: 60px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 25px;
+    color: #ed7a50;
+    font-style: bold
+}
+
+.txtmaior {
+    display: flex;
+    color: #ed7a50;
+    font-style: bold;
+    font-family: 'Poppins', sans-serif;
+    font-size: 33px;
+    margin-right: 20px;
+    padding: 0px 0px 0px 55px;
+   text-align: right;
+   text-shadow: 2px 2px 4px rgba(55, 53, 53, 0.4);
+}
+body {
+    background-color: #DBCCA7;
+}
+.texto{
+    font-size: 18px;
+    margin-top: 20px;
+    margin-left: 60px;
+    margin-right: 755px;
+    font-family: 'Poppins', sans-serif;
+}
+.botao{
+background-color: #86684a;
+color:white;
+margin-top: 20px;
+margin-left:  80px ;
+border-radius: 30px ;
+size: 30px;
+}
+
+
+
