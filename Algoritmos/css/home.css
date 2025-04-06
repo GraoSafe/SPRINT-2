@@ -5,7 +5,8 @@ html {
 body {
     background-color: #FAF2FF;
     margin: 0;
-
+    display: flex;
+    flex-direction: column;
 
 }
 
@@ -179,17 +180,17 @@ body {
 
 }
 
-.div_pai{
+.div_pai {
     width: 100%;
     height: auto;
     background-color: #CDD6CB;
     display: flex;
     align-items: center;
     flex-direction: column;
-    
+
 }
 
-.div_bloco{
+.div_bloco {
     height: 400px;
     width: 1000px;
     background-color: #CDD6CB;
@@ -201,21 +202,22 @@ body {
 
 }
 
-.titulo2{
+.titulo2 {
     margin-top: 80px;
     display: flex;
     color: #0A5436;
     font-family: 'Roboto';
     font-size: 38px;
 }
-.subtitulo{
+
+.subtitulo {
     margin-top: 0;
     font-family: 'Roboto';
     color: #4E504D;
     font-size: 26px;
 }
 
-.bloco1{
+.bloco1 {
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -226,7 +228,7 @@ body {
     border-radius: 70px 0px 0px 0px;
 }
 
-.bloco2{
+.bloco2 {
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -237,7 +239,7 @@ body {
     border-radius: 20px;
 }
 
-.bloco3{
+.bloco3 {
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -248,7 +250,7 @@ body {
     border-radius: 0px 70px 0px 0px;
 }
 
-.circulos{
+.circulos {
     height: auto;
     width: 1000px;
     display: flex;
@@ -259,7 +261,7 @@ body {
     margin-top: 280px;
 }
 
-.circulo1{
+.circulo1 {
     height: 100px;
     width: 100px;
     background-color: #0A5436;
@@ -270,7 +272,7 @@ body {
     justify-content: center;
 }
 
-.circulo2{
+.circulo2 {
     height: 100px;
     width: 100px;
     background-color: #BA8434;
@@ -278,10 +280,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
 }
 
-.circulo3{
+.circulo3 {
     height: 100px;
     width: 100px;
     background-color: rgb(159, 70, 70);
@@ -292,15 +294,16 @@ body {
     justify-content: center;
     align-items: center;
 }
-h2{
+
+h2 {
     display: flex;
     font-family: 'Roboto';
     color: #4E504D;
     font-size: 20px;
     margin-top: 95px;
-}     
+}
 
-h1{
+h1 {
     margin-top: 70px;
     font-size: 22px;
     font-weight: 0;
@@ -308,7 +311,7 @@ h1{
     color: #4E504D;
 }
 
-.textoh3{
+.textoh3 {
     display: flex;
     font-family: 'Roboto';
     color: #5E8C77;
@@ -316,11 +319,79 @@ h1{
     margin-right: 5px;
 }
 
-.div_mae{
+.div_mae {
     width: 100%;
-    height: auto;
+    height: 1200px;
     background-color: aliceblue;
     display: flex;
     align-items: center;
     flex-direction: column;
+}
+
+.container_mae {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+
+}
+
+.h1_mae {
+    display: flex;
+    font-size: 30px;
+    color: #CDD6CB;
+    position: absolute;
+    font-family: 'Roboto';
+}
+
+.topo {
+    width: 100%;
+    height: auto;
+}
+
+.titulo3 {
+    color: #004d03;
+    font-size: 36px;
+    display: flex;
+    justify-content: center;
+    
+}
+.dados{
+    display: flex;
+    width: 50%;
+    height: 50%;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #DB6901;
+}
+.nome{
+    display: flex;
+    width: 100%;
+    height: 30%;
+    justify-content: center;
+    background-color: aliceblue;
+    border: 0;
+   font-family: 'Roboto';
+    font-size: 22px;
+}
+.email{
+display: flex;
+width: 100%;
+height: 30%;
+justify-content: center;
+background-color: aliceblue;
+border: 0;
+font-family: 'Roboto';
+font-size: 22px;
+}
+.mensagem{
+    display: flex;
+    width: 100%;
+    height: 250px;
+    background-color: aliceblue;
+    align-items: center;
+    font-family: 'Roboto';
+    font-size: 22px;
+    border: 0;
 }
