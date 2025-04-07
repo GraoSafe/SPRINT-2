@@ -169,6 +169,7 @@ body {
     margin-left: 200px;
     margin-bottom: 40px;
     margin-top: 40px;
+    cursor: pointer;
 }
 
 
@@ -351,47 +352,129 @@ h1 {
 }
 
 .titulo3 {
-    color: #004d03;
+    color: #0A5436;
     font-size: 36px;
     display: flex;
     justify-content: center;
-    
+
 }
-.dados{
+
+.dados {
     display: flex;
     width: 50%;
     height: 50%;
     justify-content: center;
     flex-direction: column;
-    background-color: #DB6901;
 }
-.nome{
+
+.nome {
     display: flex;
     width: 100%;
     height: 30%;
     justify-content: center;
     background-color: aliceblue;
     border: 0;
-   font-family: 'Roboto';
+    font-family: 'Roboto';
     font-size: 22px;
 }
-.email{
-display: flex;
-width: 100%;
-height: 30%;
-justify-content: center;
-background-color: aliceblue;
-border: 0;
-font-family: 'Roboto';
-font-size: 22px;
-}
-.mensagem{
+
+.email {
     display: flex;
     width: 100%;
-    height: 250px;
+    height: 30%;
+    justify-content: center;
+    background-color: aliceblue;
+    border: 0;
+    font-family: 'Roboto';
+    font-size: 22px;
+}
+
+.mensagem {
+    display: flex;
+    width: 100%;
+    height: 290px;
     background-color: aliceblue;
     align-items: center;
     font-family: 'Roboto';
     font-size: 22px;
     border: 0;
+}
+
+.enviar {
+    display: flex;
+    width: 99px;
+    height: 50px;
+    color: #FAF2FF;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, #5CB58C, #054945);
+    border: none;
+    padding: 10px 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    cursor: pointer;
+}
+
+.final {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+    margin-top: 50px;
+    background-color: #0A5436;
+}
+
+.container_fundo {
+    display: flex;
+    justify-content: space-around;
+    width: 60%;
+    height: 50%;
+    
+}
+
+.container_final_direito {
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    
+
+}
+
+.container_final_meio {
+    width: auto;
+    height: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+
+.container_final_esquerdo {
+    width: auto;
+    height: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+.graosafe {
+    display: flex;
+    font-size: 40px;
+    color: #FAF2FF;
+    font-family: 'Raleway';
+    font-weight: 500;
+    line-height: 35px;
+}
+
+.frasefinal {
+    display: flex;
+    font-size: 20px;
+    font-family: 'Raleway';
+    color: #FAF2FF;
+    line-height: 35px;
+    font-weight: normal;
 }
