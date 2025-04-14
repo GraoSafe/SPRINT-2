@@ -119,10 +119,10 @@ body {
 
 }
 
-soja {
+.soja {
     display: flex;
     width: auto;
-    height: 200px;
+    height: 350px;
     margin-left: 70px;
 }
 
