@@ -4,8 +4,8 @@ html{
 }
 
 body{
-    font-family: 'Roboto';
-    background-color: #f9f9f9;
+    font-family: Helvetica, sans-serif;
+    background-color: white; 
     margin: 0;
 }
 .msg-princ{
@@ -19,11 +19,11 @@ body{
 }
 
 .main-color {
-    color: #0A5436;
+    color: rgb(1, 85, 1);
 }
 
 .main-font {
-    font-family: 'Roboto';
+    font-family: Helvetica;
 }
 
 .center {
@@ -41,8 +41,8 @@ body{
 }
 
 .navbar a {
-    color: #4E504D;
-    font-family: 'Roboto';
+    color: rgb(114, 114, 114);
+    font-family: Helvetica;
     text-align: center;
     text-decoration: none;
     font-size: 30px;
@@ -52,41 +52,31 @@ body{
 }
 
 .navbar a:hover {
-    color: #DB6901;
+    color: rgb(240, 91, 37);
     font-size: 33px;
     transition: all 0.3s ease-in-out;
 }
 
 .title {
     font-size: 70px;
-    font-family: 'Jost';
-    font-weight: bold;
-    color: #DB6901
-}
-.sub-tittle{
-color: #4E504D;
-margin-top: 0;
-align-items: center;
-justify-content: center;
-margin-bottom: 20px;
+    font-family: Helvetica;
 }
 
 .input-style {
     padding-bottom: 20px;
     font-size: 30px;
-    font-family: 'Jost';
-    color: #4E504D;
-
+    font-family: Helvetica;
 }
 .input-type {
     border-radius: 10px;
-    background-color: #f9f9f9;
+    background-color: rgb(193, 255, 193);
     height: 40px;
-    border: solid 2px #999999;
-    font-family: 'Roboto';
+    border: solid 4px rgb(2, 65, 0);
+    font-family: Helvetica;
     font-size: 100%;
-    color: #4E504D;
 }
+
+
 .logo {
     display: flex;
     flex-direction: row;
@@ -99,13 +89,13 @@ margin-bottom: 20px;
 }
 
 .login {
-    color: #0A5436;
+    color: rgb(1, 58, 1);
     position: absolute;
     top: 35px;
     right: 85px;
     height: fit-content;
     width: fit-content;
-    font-family: 'Roboto';
+    font-family: Helvetica;
     font-size: 25px;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -114,17 +104,17 @@ margin-bottom: 20px;
     transition: background-color 0.3s;
 }
 .login {
-    background-color: #0A5436;
+    background-color: #004d03;
 }
 .login-button:hover {
-    background-color: #DB6900;
+    background-color: #45a049;
 }
 .input-local {
     text-align: center;
     margin: 0;
     width: 101%;
-    background-color:#f9f9f9;
-    font-family: 'Roboto';
+    background-color: rgb(224, 224, 224);
+    font-family: monospace;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -139,28 +129,29 @@ margin-bottom: 20px;
     font-size: 23px;
 }
 .calc-button {
-    background-color: #0A5436;
-    color: #FFFFFF;
+    background-color: #147700;
+    color: white;
     cursor: pointer;
-    font-family: 'Roboto';
+    font-family: Helvetica;
+}
+.calc-button {
     padding: 10px;
     margin: 5px 0;
     width: 30%;
     font-size: 16px;
     border-top-right-radius: 25px;
     border-bottom-left-radius: 25px;
-    border: 1px solid #FFFFFF;
-    font-family: 'Roboto';
+    border: 1px solid #ccc;
 }
 .calc-button:hover {
-    background-color: #DB6900;
+    background-color: #45a049;
     transition: background-color 0.3s;
 }
 .onda {
     padding: 10;
     width: 101%;
     height: 200px;
-    background-color: #0A5436;
+    background-color: #147700;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -178,24 +169,25 @@ margin-bottom: 20px;
     left: 400px;
     padding-top: 50px;
     border-radius: 5px;
-    color: #FFFFFF;
+    color: white;
 }
 
 .ton-saca {
     top: 20px;
     height: fit-content;
     width: fit-content;
-    border: solid 1px #4E504D;
-    background-color: #f9f9f9;
+    border: solid 1px navy;
+    background-color: azure;
 }
 
 .chart-container {
     width: 1200px;
     margin: 20px auto;
     padding: 20px;
-    background-color: #f9f9f9;
+    
+    background-color: white;
     border-radius: 5px;
-    border: solid 5px #FFFFFF;
+    border: solid 5px #dbd9d9;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 
 
@@ -205,33 +197,39 @@ margin-bottom: 20px;
     width: 800px;
     height: 200px;
     margin: 20px auto;
+
     text-align: center;
-    border: solid 5px #FFFFFF;
-    background-color: #FFFFFF;
-    font-family: 'Roboto';
+
+    border: solid 5px rgb(221, 221, 221);
+    background-color: rgba(196, 196, 196, 0.459);
+   
+    font-family: helvetica;
     font-size: 30px;
+
     border-radius: 8px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    justify-content: center;
-    align-items: center;
 }
 .info-box2 {
     padding-top: 5px;
     width: 1250px;
     height: fit-content;
     margin: 20px auto;
+
     text-align: center;
-    border: solid 5px #FFFFFF;
-    background-color: #FFFFFF;
-    font-family: 'Roboto';
+
+    border: solid 5px rgb(221, 221, 221);
+    background-color: rgba(196, 196, 196, 0.459);
+   
+    font-family: helvetica;
     font-size: 30px;
+
     border-radius: 8px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 
 }
 .container-grafico{
     height: 1000px;
-    border: solid 3px #4E504D;
+    border: solid 3px gray;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -249,10 +247,10 @@ margin-bottom: 20px;
     text-align: center;
     align-self: center;
 
-    font-family: 'Roboto';
+    font-family: helvetica;
     font-size: 30px;
 
-    border: #0A5436;
+    border: #147700;
     border-top-left-radius: 20px;
     border-bottom-right-radius: 20px;
 
@@ -261,8 +259,8 @@ margin-bottom: 20px;
     padding-right: 40px;
     padding-left: 40px;
 
-    background: linear-gradient(to bottom #FFFFFF 0%,#4E504D 80%, #999999 100%);
-    color:#4E504D;
+    background: linear-gradient(to bottom,#147700 0%,#147700 80%, #ff9100 100%);
+    color:white;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 .nome-div{
@@ -270,22 +268,27 @@ margin-bottom: 20px;
     align-self: center;
     justify-content: center;
     flex-direction: column;
-    margin-top: 20px;
+
     height: fit-content;
     width: fit-content;
+
     text-align: center;
     align-self: center;
-    font-family: 'Roboto';
+
+    font-family: helvetica;
     font-size: 60px;
-    border: #0A5436;
+
+    border: #147700;
     border-top-left-radius: 20px;
     border-bottom-right-radius: 20px;
+
     padding-top: 5px;
     padding-bottom: 5px;
     padding-right: 40px;
     padding-left: 40px;
-    background: linear-gradient(to bottom, #FFFFFF 0%,#FFFFFF 80%, #FFFFFF 100%);
-    color:#0A5436;
+
+    background: linear-gradient(to bottom,#147700 0%,#147700 80%, #ff9100 100%);
+    color:white;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 canvas {
