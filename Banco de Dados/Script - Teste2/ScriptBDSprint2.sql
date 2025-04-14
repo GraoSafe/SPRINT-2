@@ -74,7 +74,7 @@ INSERT INTO SensorLM35 (dtInstalacao, dtManutencao, statusSensor,fkSilo)VALUES
 ('2024-01-10 09:00:00', '2025-02-25 16:45:00', 'Inativo',2),
 ('2024-03-10 13:00:00', '2025-02-28 11:00:00', 'Inativo',3);
 
--- Selecionando dados
+-- EXIBINDO OS DADOS DA EMPRESA.
 SELECT c.nomeEmpresa AS 'Nome do Cliente',
 e.rua AS 'Rua',
 e.bairro AS 'Bairro',
@@ -95,4 +95,38 @@ Cliente AS c JOIN Endereço AS e ON c.idCliente = e.fkCliente
 JOIN Silo AS s ON e.idEndereco = s.fkClienteSilo
 JOIN SensorLM35 AS l ON s.idSilo = l.fkSilo;
 
--- Atualizando e deletando dados 
+-- EXIBINDO OS DADOS DAS EMPRESAS E OS DADOS DE SEUS SILOS
+select c.nomeEmpresa as 'Nome da Empresa',
+c.email as 'Email',
+c.senha as 'Senha',
+c.cnpj as 'CNPJ',
+c.telefone as 'Contato',
+
+e.CEP,
+e.rua as 'Rua',
+e.bairro as 'Bairro',
+e.cidade as 'Cidade',
+e.UF,
+s.nome as 'Nome do Silo',
+s.tipo as 'Tipo de Silo',
+s.capacidadeTonelada as 'Capacidade do Silo em toneladas',
+lm.statusSensor AS 'Status do sensor',
+lm.dtInstalacao AS 'Data de instalação do sensor',
+lm.dtManutencao AS 'Data de manutenção do sensor',
+c.dtCadastro AS 'Quando se cadastrou'
+FROM Cliente AS c JOIN Endereço AS e ON e.fkCliente = c.idCliente
+JOIN Silo AS s ON s.fkClienteSilo = c.idCliente
+JOIN SensorLM35 AS lm ON lm.fkSilo = s.idSilo;
+
+-- Atualizando e deletando dados da Empresa Tech Solutions
+update Endereço set rua = 'Rua Delta R' where idEndereco = 2;
+update Endereço set bairro = 'Dos techs' where idEndereco = 2;
+update Endereço set cidade = 'Rio Grande do Norte' where idEndereco = 2;
+update Endereço set CEP = '04849220'where idEndereco = 2;
+update Endereço set UF = 'RN' where idEndereco = 2;
+
+-- DELETANDO OS DADOS DA EMPRESA ABC DEVIDO AO CORTE DE CONTRATO
+delete from Cliente where idCliente = 1;
+delete from Endereço where idEndereco = 1;
+delete from Silo where idSilo = 1;
+delete from SensorLM35 where idSensor = 1; 
