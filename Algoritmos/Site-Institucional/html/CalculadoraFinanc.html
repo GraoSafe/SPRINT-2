@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador Financeiro</title>
+    <link rel="stylesheet" href="../css/simulador.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Inclusão da biblioteca Chart.js -->
+</head>
+
+<body>
+
+    <div class="logo">
+        <img src="../Imagens/GraoSafe.png">
+    </div>
+
+    <div class="login border login-button" href="./login.html">
+        <span style="color: white; pointer-events:none;"><b>Login</b></span>
+    </div>
+
+    <div class="navbar">
+        <b>
+            <a href="./home.html"><span>Home</span></a>
+            <a href="#O Sensor"><span>O Sensor</span></a>
+            <a href="#"><span>Simulação</span></a>
+            <a href="#"><span>Contato</span></a>
+        </b>
+    </div>
+
+    <div class="input-local">
+        <div class="title main-color">
+            <h1 class="title"> Simulador Financeiro </h1>
+        </div>
+        <h2 class="sub-tittle"> Calcule aqui a estimativa de perda de sua produção de grãos de soja por mal armazenamento:</h2> <br>
+
+        <div class="input-style">
+            Digite o nome da sua Empresa:
+            <input type="text" id="input_nome" class="input-type"> <br> <br>
+
+            Digite a quantidade de toneladas armazenado em seus silos:
+            <input type="number" id="input_toneladas" placeholder="Digite o valor" class="input-type"> <br> <br>
+
+            Digite a cotação da saca de soja atual:
+            <input type="number" id="input_saca" placeholder="Digite o valor" class="input-type"> <br> <br>
+        </div>
+        
+        <button onclick="analisePerda()" class="calc-button">Analise de Safra</button><br> <br>
+    </div>
+    <div class="onda"></div>
+
+
+    <!-- Container para o gráfico -->
+     
+    
+    <!--<div class="nome-div">${nomeEmpresa}</div>-->
+    <center>
+    <div id="mensagem_nome" class="nome-empre">          </div>
+    </center>   
+    
+    <div id="mensagem_principal" class="msg-princ"> 
+
+</body> 
+</html>
+    <script>
+        var myChartInstance = null; // Variável global para armazenar a instância do gráfico
+
+        function analisePerda() {
+            var nomeEmpresa = document.getElementById("input_nome").value;
+            var qtdToneladas = Number(document.getElementById("input_toneladas").value);
+            var valorSaca = Number(document.getElementById("input_saca").value);
+
+            // Validação dos campos preenchidos
+            if (!nomeEmpresa || qtdToneladas <= 0 || valorSaca <= 0) {
+                alert("Por favor, preencha todos os campos corretamente!");
+                return;
+            }
+
+            // Cálculos de receita, perdas, etc...
+            var perdaReal = (qtdToneladas * 0.15) * valorSaca;
+            var perdaCorrigida = (qtdToneladas * 0.075) * valorSaca;
+            var receitaTotal = qtdToneladas * valorSaca;
+            var perdaAbsoluta = receitaTotal - (qtdToneladas - (qtdToneladas * 0.15)) * valorSaca;
+
+            mensagem_nome.innerHTML= `<div class="nome-div">${nomeEmpresa}</div>`
+            mensagem_principal.innerHTML = `
+            <div class="info-box">
+            A perda média de grãos por armazenamento inadequado, no Brasil, segundo a Companhia Nacional de Abastecimento
+            (Conab/2023), é de <b>15%</b>. <br> <br>
+            </div>
+
+            
+            <div id="div_mensagem_ton" class="div_msg_ton"></div>
+            <div class="nome-grafico">GRAFICO PERDA REAL/PERDA CORRIGIDA (Uso do Sensor)</div>
+            <div class="chart-container"><canvas id="myChart" class="main-font"></canvas></div> 
+            <div class="info-box2"> Perda real por armazenamento inadequado: 
+                <b>R$${perdaReal.toLocaleString('pt-br', {minimumFractionDigits:2})}</b><br> 
+                Perda corrigida (reduzida a 7,5%): 
+                <b> R$${perdaCorrigida.toLocaleString('pt-br', {minimumFractionDigits:2})}</b> </div>
+            <div id="div_ton_saca" class="ton-saca"></div>
+            </div>
+            <div id="div_mensagem_perda"></div>
+            <div id="div_mensagem_resultado"></div>`
+            
+            // Exibição dos resultados
+            document.getElementById("div_mensagem_ton").innerHTML += `
+                Nome da Empresa: <b>${nomeEmpresa}</b><br> 
+                Quantidade de toneladas: <b>${qtdToneladas} toneladas</b><br> 
+                Valor da saca: <b>R$${valorSaca.toFixed(2)}</b>
+            `;/*
+            document.getElementById("div_mensagem_resultado").innerHTML += `
+                Receita total: <b>R$${receitaTotal.toFixed(2)}</b><br> 
+                Perda Absoluta: <b>R$${perdaAbsoluta.toFixed(2)}</b>
+            `;
+            */
+            // Atualiza o gráfico com os novos dados
+            
+            updateChart(perdaReal, perdaCorrigida);
+            window.scrollBy({
+                top: 800, // Quantidade de pixels a rolar
+                behavior: "smooth" 
+            });
+            }
+        
+
+        function updateChart(perdaReal, perdaCorrigida) {
+            var ctx = document.getElementById('myChart').getContext('2d');
+
+            // Se já houver um gráfico desenhado, destrua-o antes de criar um novo
+            if (myChartInstance) {
+                myChartInstance.destroy();
+            }
+
+            // Criar novo gráfico
+            myChartInstance = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Perda Real','Perda Corrigida'],
+                    datasets: [{
+                        label: 'Perdas em R$',
+                        data: [perdaReal, perdaCorrigida],
+                        backgroundColor: ['rgb(253, 43, 86, 0.8)', 'rgba(75, 192, 192, 0.8)'],
+                        borderColor: ['rgba(255, 99, 132, 1)', 'rgba(75, 192, 192, 1)'],
+                        borderWidth: 1,
+                        barThickness: 100,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            display: true
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+    </script>
+
+
+
