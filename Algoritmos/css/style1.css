@@ -1,0 +1,142 @@
+/* Cor e estilo do fundo da páginai*/
+body { 
+  margin: 0; 
+  font-family: 'Roboto', sans-serif; 
+  background-color: #FAF2FF; 
+} 
+
+ /*Cabeçalho*/
+.header { 
+  background-color: #0A5436; 
+  padding: 20px 0; 
+  color: white; 
+} 
+
+ /*Alinha os intens do cabeçalho */
+.header .container { 
+  width: 90%; 
+  margin: auto; 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+} 
+
+/*Título*/
+.titulo { 
+  font-size: 28px; 
+  font-weight: bold; 
+  color: #FAF2FF; 
+} 
+
+/*Menu de navegação*/
+.navbar { 
+  list-style: none; 
+  display: flex; 
+  gap: 15px; 
+  padding: 0; 
+  margin: 0; 
+} 
+
+/* Links do menu*/
+.navbar li a { 
+  text-decoration: none; 
+  color: #FAF2FF; 
+} 
+
+/*cor que destaca Login */  
+.navbar .agora a { 
+  font-weight: bold; 
+  color: #BA8434; 
+} 
+
+/* onde está o card login*/ 
+.login { 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  padding: 60px 20px; 
+} 
+
+/*Cartão de login (caixinha)*/ 
+.card-login { 
+  background-color: white; 
+  padding: 40px; 
+  border-radius: 12px; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+  max-width: 400px; 
+  width: 100%; 
+  text-align: center; 
+} 
+
+ /* Título Bem-vindo de volta */ 
+.card-login h2 { 
+  margin-bottom: 25px; 
+  color: #0A5436; 
+} 
+
+ /*Campo formulário (email, senha)*/ 
+.formulario .campo { 
+   margin-bottom: 20px; 
+   text-align: left; 
+} 
+  
+/* Título do campo (email, senha)*/
+.formulario span { 
+  display: block; 
+  margin-bottom: 5px; 
+  color: #4E504D; 
+  font-weight: bold; 
+} 
+ 
+/*Caixa do email e senha*/
+input { 
+  width: 100%; 
+  padding: 10px; 
+  border: 1px solid #CDD6CB; 
+  border-radius: 5px; 
+} 
+   
+/*Quando é digitado o campo email e senha*/
+input:focus { 
+  outline: none; 
+   border-color: #DB6901; 
+} 
+  
+/*Linl "Esqueci a senha"*/ 
+.esqueci { 
+  display: block; 
+  text-align: right; 
+  font-size: 12px; 
+  color: #DB6901; 
+  text-decoration: none; 
+  margin-bottom: 20px; 
+} 
+  
+/*Botão "Enter"*/
+.botao { 
+  background-color: #0A5436; 
+  color: white; 
+  border: none; 
+  padding: 12px; 
+  width: 100%; 
+  border-radius: 5px; 
+  cursor: pointer; 
+  font-weight: bold; 
+} 
+  
+/*Efeito quando o mouser passar no botão*/
+ .botao:hover { 
+  background-color: #09462d; 
+} 
+  
+/*Rodapé do site*/
+.footer { 
+  background-color: #4E504D; 
+  color: white; 
+  padding: 20px 0; 
+  text-align: center; 
+  margin-top: 60px;   
+} 
+
+
+  
