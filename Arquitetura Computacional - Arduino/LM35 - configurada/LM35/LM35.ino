@@ -59,6 +59,6 @@ void loop() {
  //Serial.print("Temp_Minima:"); // Label para temperatura mínima
  //Serial.println(tempMinima); // Use Serial.println(). Registro do valor para a label Temp_Minima
 
-  delay(500); // Tempo de "descanso" entre uma execução e outra do loop.
+  delay(1000); // Tempo de "descanso" entre uma execução e outra do loop.
 
 }
