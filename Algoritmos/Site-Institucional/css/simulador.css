@@ -6,13 +6,16 @@ html{
 body{
     font-family: Helvetica, sans-serif;
     background-color: #f9f9f9;
+    margin: 0;
 }
 .msg-princ{
     display: flex;
     justify-self: center;
-    justify-content: space-between 10px;
-    flex-direction: row;
-
+    flex-direction: column;
+    margin: 10px;
+}
+.info-cliente{
+    flex-wrap:wrap 1;
 }
 
 .main-color {
@@ -30,106 +33,6 @@ body{
 .border {
     border-radius: 5px;
 }
-
-.title {
-    font-size: 70px;
-    font-family: Helvetica;
-}
-
-.inputs {
-    padding-bottom: 20px;
-    font-size: 30px;
-    font-family: Helvetica;
-}
-
-.logo {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-
-.login {
-    color: rgb(1, 58, 1);
-    position: absolute;
-    top: 35px;
-    right: 85px;
-    height: fit-content;
-    width: fit-content;
-    font-family: Helvetica;
-    font-size: 25px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-left: 50px;
-    padding-right: 50px;
-    transition: background-color 0.3s;
-}
-
-.img {
-    height: 15%;
-    width: 15%;
-}
-
-.input-local {
-    text-align: center;
-    border-radius: 15px;
-    width: 101%;
-    background-color: rgb(224, 224, 224);
-    font-family: monospace;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 2;
-}
-
-.background-sheet {
-    background: fixed;
-}
-
-.input-type {
-    border-radius: 10px;
-    background-color: rgb(193, 255, 193);
-    height: 40px;
-    border: solid 4px rgb(2, 65, 0);
-    font-family: Helvetica;
-    font-size: 100%;
-}
-
-.sub-tittle {
-    font-size: 23px;
-}
-
-.login {
-    background-color: #004d03;
-}
-
-.calc-button {
-    background-color: #147700;
-    color: white;
-    cursor: pointer;
-    font-family: Helvetica;
-}
-
-.calc-button:hover {
-    background-color: #45a049;
-    transition: background-color 0.3s;
-}
-
-.calc-button {
-    padding: 10px;
-    margin: 5px 0;
-    width: 30%;
-    font-size: 16px;
-    border-top-right-radius: 25px;
-    border-bottom-left-radius: 25px;
-    border: 1px solid #ccc;
-}
-
-.login-button:hover {
-    background-color: #45a049;
-}
-
 .navbar {
     display: flex;
     justify-content: center;
@@ -150,13 +53,100 @@ body{
 
 .navbar a:hover {
     color: rgb(240, 91, 37);
-}
-
-.tsize:hover {
     font-size: 33px;
     transition: all 0.3s ease-in-out;
 }
 
+.title {
+    font-size: 70px;
+    font-family: Helvetica;
+}
+
+.input-style {
+    padding-bottom: 20px;
+    font-size: 30px;
+    font-family: Helvetica;
+}
+.input-type {
+    border-radius: 10px;
+    background-color: rgb(193, 255, 193);
+    height: 40px;
+    border: solid 4px rgb(2, 65, 0);
+    font-family: Helvetica;
+    font-size: 100%;
+}
+
+
+.logo {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.logo img {
+    height: 15%;
+    width: 15%;
+}
+
+.login {
+    color: rgb(1, 58, 1);
+    position: absolute;
+    top: 35px;
+    right: 85px;
+    height: fit-content;
+    width: fit-content;
+    font-family: Helvetica;
+    font-size: 25px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+    transition: background-color 0.3s;
+}
+.login {
+    background-color: #004d03;
+}
+.login-button:hover {
+    background-color: #45a049;
+}
+.input-local {
+    text-align: center;
+    margin: 0;
+    width: 101%;
+    background-color: rgb(224, 224, 224);
+    font-family: monospace;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+.background-sheet {
+    background: fixed;
+}
+.sub-tittle {
+    font-size: 23px;
+}
+.calc-button {
+    background-color: #147700;
+    color: white;
+    cursor: pointer;
+    font-family: Helvetica;
+}
+.calc-button {
+    padding: 10px;
+    margin: 5px 0;
+    width: 30%;
+    font-size: 16px;
+    border-top-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border: 1px solid #ccc;
+}
+.calc-button:hover {
+    background-color: #45a049;
+    transition: background-color 0.3s;
+}
 .onda {
     padding: 10;
     width: 101%;
@@ -173,12 +163,13 @@ body{
 
 .div_msg_ton {
     position: absolute;
-    top: 2050px;
+    z-index: -2;
+    top: 1550px;
     right: 400px;
     left: 400px;
     padding-top: 50px;
-    border: solid 2px green;
     border-radius: 5px;
+    color: white;
 }
 
 .ton-saca {
@@ -218,6 +209,24 @@ body{
     border-radius: 8px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
+.info-box2 {
+    padding-top: 5px;
+    width: 1250px;
+    height: fit-content;
+    margin: 20px auto;
+
+    text-align: center;
+
+    border: solid 5px rgb(221, 221, 221);
+    background-color: rgba(196, 196, 196, 0.459);
+   
+    font-family: helvetica;
+    font-size: 30px;
+
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+
+}
 .container-grafico{
     height: 1000px;
     border: solid 3px gray;
@@ -225,6 +234,34 @@ body{
     flex-direction: row;
     justify-content: center;
     align-items: center;
+}
+.nome-grafico{
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    flex-direction: column;
+
+    height: fit-content;
+    width: fit-content;
+
+    text-align: center;
+    align-self: center;
+
+    font-family: helvetica;
+    font-size: 30px;
+
+    border: #147700;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 40px;
+    padding-left: 40px;
+
+    background: linear-gradient(to bottom,#147700 0%,#147700 80%, #ff9100 100%);
+    color:white;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 .nome-div{
     display: flex;
@@ -258,3 +295,4 @@ canvas {
     width: 100%;
     height: 400px;
 }
+

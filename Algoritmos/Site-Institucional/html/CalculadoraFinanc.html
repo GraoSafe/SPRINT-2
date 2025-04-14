@@ -5,26 +5,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simulador Financeiro</title>
-    <link rel="stylesheet" href="style-teste.css">
+    <link rel="stylesheet" href="../css/simulador.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Inclusão da biblioteca Chart.js -->
 </head>
 
 <body>
 
     <div class="logo">
-        <img src="./GraoSafe.png" class="img">
+        <img src="../Imagens/GraoSafe.png">
     </div>
 
-    <div class="login border login-button" onclick="login()">
+    <div class="login border login-button" href="./login.html">
         <span style="color: white; pointer-events:none;"><b>Login</b></span>
     </div>
 
     <div class="navbar">
         <b>
-            <a href="#home"><span class="tsize">Home</span></a>
-            <a href="#O Sensor"><span class="tsize">O Sensor</span></a>
-            <a href="#"><span class="tsize">Simulação</span></a>
-            <a href="#"><span class="tsize">Contato</span></a>
+            <a href="./home.html"><span>Home</span></a>
+            <a href="#O Sensor"><span>O Sensor</span></a>
+            <a href="#"><span>Simulação</span></a>
+            <a href="#"><span>Contato</span></a>
         </b>
     </div>
 
@@ -34,7 +34,7 @@
         </div>
         <h2 class="sub-tittle"> Calcule aqui a estimativa de perda de sua produção de grãos de soja por mal armazenamento:</h2> <br>
 
-        <div class="inputs">
+        <div class="input-style">
             Digite o nome da sua Empresa:
             <input type="text" id="input_nome" class="input-type"> <br> <br>
 
@@ -57,11 +57,8 @@
     <center>
     <div id="mensagem_nome" class="nome-empre">          </div>
     </center>   
-
-    <div id="mensagem_principal" class="msg-princ">      </div>
     
-    
-
+    <div id="mensagem_principal" class="msg-princ"> 
 
 </body> 
 </html>
@@ -94,7 +91,12 @@
 
             
             <div id="div_mensagem_ton" class="div_msg_ton"></div>
+            <div class="nome-grafico">GRAFICO PERDA REAL/PERDA CORRIGIDA (Uso do Sensor)</div>
             <div class="chart-container"><canvas id="myChart" class="main-font"></canvas></div> 
+            <div class="info-box2"> Perda real por armazenamento inadequado: 
+                <b>R$${perdaReal.toLocaleString('pt-br', {minimumFractionDigits:2})}</b><br> 
+                Perda corrigida (reduzida a 7,5%): 
+                <b> R$${perdaCorrigida.toLocaleString('pt-br', {minimumFractionDigits:2})}</b> </div>
             <div id="div_ton_saca" class="ton-saca"></div>
             </div>
             <div id="div_mensagem_perda"></div>
@@ -105,13 +107,7 @@
                 Nome da Empresa: <b>${nomeEmpresa}</b><br> 
                 Quantidade de toneladas: <b>${qtdToneladas} toneladas</b><br> 
                 Valor da saca: <b>R$${valorSaca.toFixed(2)}</b>
-            `
-            ;/*
-            document.getElementById("div_mensagem_perda").innerHTML += `
-                Perda real por armazenamento inadequado: <b>R$${perdaReal.toFixed(2)}</b><br> 
-                Perda corrigida (reduzida a 7,5%): <b>R$${perdaCorrigida.toFixed(2)}</b>
-            `;
-            
+            `;/*
             document.getElementById("div_mensagem_resultado").innerHTML += `
                 Receita total: <b>R$${receitaTotal.toFixed(2)}</b><br> 
                 Perda Absoluta: <b>R$${perdaAbsoluta.toFixed(2)}</b>

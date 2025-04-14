@@ -71,6 +71,9 @@ body {
 
 .login {
     background-color: #004d03;
+    color: white;
+    font-weight: bolder;
+    font-family: 'Roboto';
 
 }
 
@@ -116,7 +119,7 @@ body {
 
 }
 
-.soja {
+soja {
     display: flex;
     width: auto;
     height: 200px;
@@ -142,9 +145,9 @@ body {
 .texto {
     display: flex;
     background-color: #FAF2FF;
-    font-size: 30px;
+    font-size: 35px;
     font-family: 'Roboto';
-    font-weight: 500;
+    font-weight: bolder;
     color: #4E504D;
     line-height: 50px;
     justify-content: center;
@@ -171,13 +174,23 @@ body {
     margin-top: 40px;
     cursor: pointer;
 }
-
+.divPai{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
 
 .box1 {
     display: flex;
-    align-items: center;
+    align-items: start;
+    justify-content: start;
+    width: 950px;
+
+}
+.box2 {
+    display: flex;
+    align-items: end;
     justify-content: center;
-    max-width: 1200px;
 
 }
 
@@ -322,7 +335,7 @@ h1 {
 
 .div_mae {
     width: 100%;
-    height: 1200px;
+    height: 1300px;
     background-color: aliceblue;
     display: flex;
     align-items: center;
@@ -348,7 +361,6 @@ h1 {
 
 .topo {
     width: 100%;
-    height: auto;
 }
 
 .titulo3 {
