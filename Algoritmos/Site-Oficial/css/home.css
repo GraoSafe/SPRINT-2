@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    background-color: #FAF2FF;
+    background-color: #f9f9f9;
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -11,7 +11,7 @@ body {
 }
 
 .main-color {
-    color: rgb(1, 85, 1);
+    color: #0A5436;
 }
 
 .main-font {
@@ -41,12 +41,15 @@ body {
 }
 
 .login {
-    color: rgb(1, 58, 1);
+    background-color: #0A5436;
     position: absolute;
+    text-decoration: none;
     top: 35px;
     right: 85px;
+
     height: fit-content;
     width: fit-content;
+
     font-family: Helvetica;
     font-size: 25px;
     padding-top: 20px;
@@ -70,15 +73,18 @@ body {
 }
 
 .login {
-    background-color: #004d03;
+    background-color: #0A5436;
     color: white;
     font-weight: bolder;
     font-family: 'Roboto';
+}
 
+.login a{
+    text-decoration: none;
 }
 
 .login-button:hover {
-    background-color: #45a049;
+    background-color:  rgb(240, 91, 37);
     transition: background-color 0.3s;
 }
 
@@ -94,7 +100,7 @@ body {
     font-family: Helvetica;
     text-align: center;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 30px;
     padding: 14px 20px;
     margin: 0 15px;
     padding-bottom: 0px;
@@ -109,43 +115,41 @@ body {
     transition: all 0.3s ease-in-out;
 }
 
-
-
 /*CSS KAUANY*/
 .divPai {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
-
+    justify-content: space-between;
 }
 
 .soja {
     display: flex;
     width: auto;
-    height: 350px;
+    height: 360px;
     margin-left: 70px;
 }
 
 
 .titulo {
-    height: 100px;
+    height: 50px;
     padding: 50px;
     font-weight: 700;
     display: flex;
     color: #DB6901;
     line-height: 100%;
-    font-size: 50px;
+    font-size: 45px;
     font-family: 'Jost';
     font-weight: bold;
     margin-left: 150px;
     text-align: right;
-    background-color: #FAF2FF;
+    background-color: #f9f9f9;
 }
 
 .texto {
     display: flex;
-    background-color: #FAF2FF;
-    font-size: 35px;
+    background-color: #f9f9f9;
+    font-size: 30px;
     font-family: 'Roboto';
     font-weight: bolder;
     color: #4E504D;
@@ -162,22 +166,19 @@ body {
     border-bottom-left-radius: 15px;
     background-color: #BA8434;
     color: white;
-    padding: 20px;
-    font-size: 32px;
+    padding: 25px;
+    font-size: 25px;
+
     display: flex;
     flex-direction: row;
     align-items: start;
     align-items: center;
     justify-content: center;
+
     margin-left: 200px;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
     margin-top: 40px;
     cursor: pointer;
-}
-.divPai{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
 }
 
 .box1 {
@@ -213,6 +214,7 @@ body {
     flex-direction: row;
     align-items: center;
     margin-top: 50px;
+    margin-bottom: 50px;
 
 }
 
@@ -236,7 +238,7 @@ body {
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    background-color: aliceblue;
+    background-color: #f9f9f9;
     height: 260px;
     width: 300px;
     border-radius: 70px 0px 0px 0px;
@@ -247,7 +249,7 @@ body {
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    background-color: aliceblue;
+    background-color: #f9f9f9;
     height: 260px;
     width: 300px;
     border-radius: 20px;
@@ -258,7 +260,7 @@ body {
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    background-color: aliceblue;
+    background-color: #f9f9f9;
     height: 260px;
     width: 300px;
     border-radius: 0px 70px 0px 0px;
@@ -335,8 +337,8 @@ h1 {
 
 .div_mae {
     width: 100%;
-    height: 1300px;
-    background-color: aliceblue;
+    height: 1000px;
+    background-color: #f9f9f9;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -361,6 +363,7 @@ h1 {
 
 .topo {
     width: 100%;
+    height: 350px;
 }
 
 .titulo3 {
@@ -382,10 +385,12 @@ h1 {
 .nome {
     display: flex;
     width: 100%;
-    height: 30%;
+    height: 20%;
+    margin-bottom: 20px;
     justify-content: center;
-    background-color: aliceblue;
+    background-color:#CDD6CB;
     border: 0;
+    border-radius: 5px;
     font-family: 'Roboto';
     font-size: 22px;
 }
@@ -393,10 +398,12 @@ h1 {
 .email {
     display: flex;
     width: 100%;
-    height: 30%;
+    height: 20%;
+    margin-bottom: 20px;
     justify-content: center;
-    background-color: aliceblue;
+    background-color:#CDD6CB;
     border: 0;
+    border-radius: 5px;
     font-family: 'Roboto';
     font-size: 22px;
 }
@@ -404,18 +411,20 @@ h1 {
 .mensagem {
     display: flex;
     width: 100%;
-    height: 290px;
-    background-color: aliceblue;
+    height: 250px;
+    margin-bottom: 20px;
+    background-color:#CDD6CB;
     align-items: center;
     font-family: 'Roboto';
     font-size: 22px;
     border: 0;
+    border-radius: 5px;
 }
 
 .enviar {
     display: flex;
-    width: 99px;
-    height: 50px;
+    width: 110px;
+    height: 60px;
     color: #FAF2FF;
     justify-content: center;
     align-items: center;
@@ -432,61 +441,28 @@ h1 {
     width: 100%;
     justify-content: center;
     align-items: center;
-    height: 600px;
-    margin-top: 50px;
+    height: 300px;
+    margin-top: 150px;
     background-color: #0A5436;
 }
 
 .container_fundo {
     display: flex;
-    justify-content: space-around;
-    width: 60%;
-    height: 50%;
-    
-}
-
-.container_final_direito {
-    width: auto;
-    height: auto;
-    display: flex;
     flex-direction: column;
-    
-
-}
-
-.container_final_meio {
-    width: auto;
-    height: auto;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    
-}
-
-
-.container_final_esquerdo {
-    width: auto;
-    height: auto;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    
+    width: 50%;
+    height: 100%;    
 }
 
 .graosafe {
-    display: flex;
     font-size: 40px;
     color: #FAF2FF;
     font-family: 'Raleway';
     font-weight: 500;
-    line-height: 35px;
 }
 
 .frasefinal {
-    display: flex;
     font-size: 20px;
     font-family: 'Raleway';
     color: #FAF2FF;
-    line-height: 35px;
     font-weight: normal;
 }

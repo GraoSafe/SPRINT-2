@@ -4,7 +4,7 @@ html{
 }
 
 body{
-    font-family: Helvetica, sans-serif;
+    font-family:  'Roboto';
     background-color: white; 
     margin: 0;
 }
@@ -23,7 +23,7 @@ body{
 }
 
 .main-font {
-    font-family: Helvetica;
+    font-family:  'Roboto';
 }
 
 .center {
@@ -42,7 +42,7 @@ body{
 
 .navbar a {
     color: rgb(114, 114, 114);
-    font-family: Helvetica;
+    font-family: 'Roboto';
     text-align: center;
     text-decoration: none;
     font-size: 30px;
@@ -59,20 +59,17 @@ body{
 
 .title {
     font-size: 70px;
-    font-family: Helvetica;
 }
 
 .input-style {
     padding-bottom: 20px;
     font-size: 30px;
-    font-family: Helvetica;
 }
 .input-type {
     border-radius: 10px;
     background-color: rgb(193, 255, 193);
     height: 40px;
     border: solid 4px rgb(2, 65, 0);
-    font-family: Helvetica;
     font-size: 100%;
 }
 
@@ -95,7 +92,7 @@ body{
     right: 85px;
     height: fit-content;
     width: fit-content;
-    font-family: Helvetica;
+    font-family: 'Roboto';
     font-size: 25px;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -135,7 +132,7 @@ body{
     font-family: Helvetica;
 }
 .calc-button {
-    padding: 10px;
+    padding: 15px;
     margin: 5px 0;
     width: 30%;
     font-size: 16px;

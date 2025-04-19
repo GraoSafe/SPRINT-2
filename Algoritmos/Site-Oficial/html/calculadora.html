@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simulador Financeiro</title>
     <link rel="stylesheet" href="../css/simulador.css">
+    <link href='https://fonts.googleapis.com/css?family=Jost' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Inclusão da biblioteca Chart.js -->
 </head>
 
@@ -15,14 +18,15 @@
         <img src="../Imagens/GraoSafe.png">
     </div>
 
-    <div class="login border login-button" href="./login.html">
+    <div class="login border login-button">
+        <a href="./login.html">
         <span style="color: white; pointer-events:none;"><b>Login</b></span>
+        </a>
     </div>
 
     <div class="navbar">
         <b>
             <a href="./home.html"><span>Home</span></a>
-            <a href="#"><span>O Sensor</span></a>
             <a href="./calculadora.html"><span>Simulação</span></a>
             <a href="#"><span>Contato</span></a>
         </b>
@@ -32,11 +36,13 @@
         <div class="title main-color">
             <h1 class="title"> Simulador Financeiro </h1>
         </div>
-        <h2 class="sub-tittle"> Calcule aqui a estimativa de perda de sua produção de grãos de soja por mal armazenamento:</h2> <br>
+        <div class="sub-title">
+            <h2 class="sub-title"> Calcule aqui a estimativa de perda de sua produção de grãos de soja por mal armazenamento:</h2> <br>
+        </div>
 
         <div class="input-style">
             Digite o nome da sua Empresa:
-            <input type="text" id="input_nome" class="input-type"> <br> <br>
+            <input type="text" id="input_nome" placeholder="Digite o nome" class="input-type"> <br> <br>
 
             Digite a quantidade de toneladas armazenado em seus silos:
             <input type="number" id="input_toneladas" placeholder="Digite o valor" class="input-type"> <br> <br>

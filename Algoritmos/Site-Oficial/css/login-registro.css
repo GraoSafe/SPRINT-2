@@ -1,6 +1,7 @@
 body{
     margin: 0;
-    height: 947px;
+    height: 900px;
+    width: 100%;
     font-family: 'Roboto';
 }
 
@@ -9,16 +10,19 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 900px;
-    width: 100%;
-}
 
+    height: 100%;
+    width: 100%;
+
+}
 
 .coluna{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    margin: auto;
     width: 600px;
     height: 100%;
 }
@@ -28,7 +32,6 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
 
     height: fit-content;
     width: 100%;
@@ -47,13 +50,21 @@ body{
 
 
 .img-bg{
-    background-image: url(../Imagens/login-bg.jpg);;
+    background-image: url('../Imagens/login-bg.jpg');
     background-size: cover;
+    filter: blur(4px);
 
-    height: 100%;
-    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vw;
+    background-position: center;
+    background-repeat: no-repeat;
     z-index: -1;
 }
+
+
 .logo-gs{
     position: absolute;
     top: 620px;
@@ -74,6 +85,7 @@ body{
     height: fit-content;
     width:  950px;
 }
+
 .titulo { 
     font-size: 28px; 
     font-weight: bold; 
@@ -81,20 +93,21 @@ body{
 } 
 
 .card-login { 
+    text-align: center; 
     background-color: white; 
+
     padding: 40px; 
     padding-bottom: 10px;
     border-radius: 12px; 
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
     max-width: 450px; 
-    width: 100%; 
-    text-align: center; 
+    width: 100%;
     
 } 
   
 
 .card-login h2 { 
-    font-family: Arial;
+    font-family: 'Roboto';
     font-weight: bolder;
     margin-bottom: 25px; 
     color: #0A5436; 
@@ -102,17 +115,19 @@ body{
   
 
 .formulario .campo { 
-     margin-bottom: 20px; 
-     text-align: left; 
-} 
+    margin-bottom: 20px; 
+    text-align: left;
+}
     
 .formulario span { 
     display: flex;
-    flex-direction: row; 
+    flex-direction: row;
+
     margin-bottom: 5px; 
     color: #4E504D; 
     font-weight: bold; 
 }
+
 .verify-text { 
     display: block; 
     margin-bottom: 5px; 
@@ -124,12 +139,13 @@ input {
     width: 100%; 
     padding: 10px; 
     border: 1px solid #CDD6CB; 
-    border-radius: 5px; 
+    border-radius: 9px; 
+    font-size: 100%;
 } 
      
 input:focus { 
     outline: none; 
-     border-color: #DB6901; 
+    border-color: #DB6901; 
 } 
     
 .esqueci { 
@@ -155,8 +171,9 @@ input:focus {
 } 
     
 .botao:hover { 
-    background-color: #09462d; 
+    background-color:#DB6900; 
 } 
+
 .buttom-back{
     padding-bottom: 15px;;
     padding-left: 15px;
@@ -167,19 +184,31 @@ input:focus {
     align-items: center;
     gap: 10px;
 }
+
 .buttom-back h1{
     font-size: 32px;
     font-family:'Roboto';
     color: white;
 }
+
 .img-g{
     width: 60px;
     height: 60px;
 }
+
 .img-g:hover{
     width: 65px;
     height: 65px;
-    transition: 0.2s ease-in;
-    transition: 0.3 ease-out;
+    transition: all 0.3s ease-out;
 }
 
+/* @media (max-width: 768px) {
+    .coluna {
+    width: 90%;
+    margin-left: 0;
+    }
+    .card-login {
+    padding: 20px;
+    }
+}
+ */
