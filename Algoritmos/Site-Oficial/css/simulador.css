@@ -4,7 +4,7 @@ html{
 }
 
 body{
-    font-family: 'Roboto';
+    font-family: Arial, Helvetica, sans-serif;
     background-color:  #f9f9f9;
     margin: 0;
     width: 100%;
@@ -23,10 +23,6 @@ body{
     color: #0A5436;
 }
 
-.main-font {
-    font-family: 'Roboto';
-}
-
 .center {
     align-self: auto;
 }
@@ -43,7 +39,6 @@ body{
 
 .navbar a {
     color: rgb(114, 114, 114);
-    font-family: Helvetica;
     text-align: center;
     text-decoration: none;
     font-size: 30px;
@@ -64,7 +59,6 @@ body{
 
 .title {
     font-size: 50px;
-    font-family: 'Jost';
     font-weight: bold;
     color: #DB6901
 }
@@ -81,7 +75,6 @@ justify-content: center;
     padding-bottom: 10px;
     font-size: 25px;
     font-weight: 550;
-    font-family: 'Roboto';
     color: #4E504D;
 
 }
@@ -91,7 +84,6 @@ justify-content: center;
     border-radius: 10px;
     
     height: 40px;
-    font-family: 'Roboto';
     font-size: 60%;
     color: #4E504D;
     padding-right: 15px;
@@ -115,7 +107,6 @@ justify-content: center;
     right: 85px;
     height: fit-content;
     width: fit-content;
-    font-family: 'Roboto';
     font-size: 25px;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -135,7 +126,6 @@ justify-content: center;
     width: 100%;
 
     background-color:#f9f9f9;
-    font-family: 'Roboto';
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -153,7 +143,6 @@ justify-content: center;
     background-color: #0A5436;
     color: #FFFFFF;
     cursor: pointer;
-    font-family: 'Roboto';
 
     margin: 5px 0;
     width: 30%;
@@ -196,7 +185,6 @@ justify-content: center;
     padding-top: 50px;
     border-radius: 5px;
     color: #FFFFFF;
-    font-family: 'Jost';
 }
 
 .ton-saca {
@@ -229,7 +217,6 @@ justify-content: center;
     border: solid 5px #FFFFFF;
     background-color: #FFFFFF;
 
-    font-family: 'Roboto';
     font-size: 30px;
     border-radius: 9px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
@@ -246,7 +233,6 @@ justify-content: center;
     border: solid 5px #FFFFFF;
     background-color: #FFFFFF;
 
-    font-family: 'Roboto';
     font-size: 30px;
     border-radius: 8px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
@@ -272,7 +258,6 @@ justify-content: center;
     text-align: center;
     align-self: center;
 
-    font-family: 'Roboto';
     font-size: 25px;
 
     border: #0A5436;
@@ -299,7 +284,6 @@ justify-content: center;
     width: fit-content;
     text-align: center;
     align-self: center;
-    font-family: 'Roboto';
     font-size: 50px;
 
     border: #0A5436;

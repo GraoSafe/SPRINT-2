@@ -18,17 +18,17 @@
         <img src="../Imagens/GraoSafe.png">
     </div>
 
-    <div class="login border login-button">
-        <a href="./login.html">
-        <span style="color: white; pointer-events:none;"><b>Login</b></span>
-        </a>
-    </div>
+    <a href="./login.html" style="text-decoration: none;">
+        <div class="login border login-button" style="cursor: pointer;">
+            <span style="color: #FAF2FF;"><b>Login</b></span>
+        </div>
+    </a>
 
     <div class="navbar">
         <b>
             <a href="./home.html"><span>Home</span></a>
             <a href="./calculadora.html"><span>Simulação</span></a>
-            <a href="#"><span>Contato</span></a>
+            <a href="./home.html"><span>Contato</span></a>
         </b>
     </div>
 
@@ -78,7 +78,7 @@
 
             // Validação dos campos preenchidos
             if (!nomeEmpresa || qtdToneladas <= 0 || valorSaca <= 0) {
-                alert("Por favor, preencha todos os campos corretamente!");
+                alert("PREENCHA TODOS OS CAMPOS");
                 return;
             }
 

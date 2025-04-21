@@ -14,7 +14,7 @@
 <body>
                 <div class="container">
                   <div class="img-bg">
-                  </div>
+                  </div> 
                         <div class="coluna">
 
                       <div class="container-login">
@@ -32,22 +32,26 @@
 
                                           <div class="campo"> 
                                             <span id="span_nome">Nome:</span>
-                                            <input id="input_nome" type="text" placeholder="Digite seu nome"> 
+                                            <input id="input_nome" type="text" placeholder="Digite seu nome"><br>
+                                            <div id="nomeCarac"></div>
                                           </div> 
 
                                           <div class="campo"> 
                                             <span id="span_email"><div id="div_email_verify" class="verify-text"></div>E-mail:</span> 
-                                            <input id="input_email" type="text" placeholder="Digite seu email"> 
+                                            <input id="input_email" type="text" placeholder="Digite seu email"><br>
+                                            <div id="emailCarac"></div> 
                                           </div> 
 
                                           <div class="campo"> 
-                                            <span id="span_senha"><div id="div_senha_verify" class="verify-text"></div>Senha:</span> 
-                                            <input id="input_senha" type="text" placeholder="Digite sua senha"> 
+                                            <span id="span_senha"><div id="div_senha_verify" class="verify-text"></div>Senha:</span>
+                                            <input id="input_senha" type="password" placeholder="Digite sua senha"><br>
+                                            <div id="senhaCarac"></div>
                                           </div> 
                                           
                                         <div class="campo"> 
-                                          <span id="span_cpf_cnpj">CPF ou CNPJ:</span> 
-                                          <input id="input_cpf-cnpj" type="text" placeholder="Digite seu CPF/CNPJ"> 
+                                          <span id="span_cpf_cnpj">CPF ou CNPJ (APENAS NÚMEROS):</span> 
+                                          <input maxlength="14" minlength="11" id="input_cpf_cnpj" type="text" placeholder="Digite seu CPF/CNPJ"><br>
+                                          <div id="cpf_cnpjCarac"></div>
                                         </div> 
                                     <div id="div_Login_Alert" class="verify-text"></div>
                           
@@ -61,3 +65,28 @@
               
 </body>
 </html>
+
+<script>
+
+  function Verify_Variables() {
+    var nome = input_nome.value;
+    var email = input_email.value;
+    var senha = input_senha.value;
+    var cpfCNPJ = input_cpf_cnpj.value;
+
+    if (nome == "" && email == "" && senha == "" && cpfCNPJ == "") {
+      nomeCarac.innerHTML = `<span style="color: red;">* Campo obrigatório</span>`
+
+      emailCarac.innerHTML = `<span style="color: red;">* Campo obrigatório</span>`
+
+      senhaCarac.innerHTML = `<span style="color: red;">* Campo obrigatório</span>`
+
+      cpf_cnpjCarac.innerHTML = `<span style="color: red;">* Campo obrigatório</span>`
+    }
+    else{
+      window.location.href = "./home.html";
+    }
+    
+  }
+
+</script>

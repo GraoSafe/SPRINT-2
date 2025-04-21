@@ -7,6 +7,7 @@ body {
     margin: 0;
     display: flex;
     flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
 
 }
 
@@ -14,9 +15,7 @@ body {
     color: #0A5436;
 }
 
-.main-font {
-    font-family: Helvetica;
-}
+
 
 .border {
     border-radius: 5px;
@@ -24,7 +23,6 @@ body {
 
 .title {
     font-size: 70px;
-    font-family: Helvetica;
 }
 
 .logo {
@@ -50,7 +48,6 @@ body {
     height: fit-content;
     width: fit-content;
 
-    font-family: Helvetica;
     font-size: 25px;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -64,7 +61,6 @@ body {
     border-radius: 15px;
     width: 101%;
     background-color: #FAF2FF;
-    font-family: monospace;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -76,7 +72,6 @@ body {
     background-color: #0A5436;
     color: white;
     font-weight: bolder;
-    font-family: 'Roboto';
 }
 
 .login a{
@@ -97,7 +92,6 @@ body {
 
 .navbar a {
     color: rgb(114, 114, 114);
-    font-family: Helvetica;
     text-align: center;
     text-decoration: none;
     font-size: 30px;
@@ -139,7 +133,6 @@ body {
     color: #DB6901;
     line-height: 100%;
     font-size: 45px;
-    font-family: 'Jost';
     font-weight: bold;
     margin-left: 150px;
     text-align: right;
@@ -150,7 +143,6 @@ body {
     display: flex;
     background-color: #f9f9f9;
     font-size: 30px;
-    font-family: 'Roboto';
     font-weight: bolder;
     color: #4E504D;
     line-height: 50px;
@@ -181,6 +173,7 @@ body {
     cursor: pointer;
 }
 
+
 .box1 {
     display: flex;
     align-items: start;
@@ -192,8 +185,8 @@ body {
     display: flex;
     align-items: end;
     justify-content: center;
-
 }
+
 
 .div_pai {
     width: 100%;
@@ -222,13 +215,11 @@ body {
     margin-top: 80px;
     display: flex;
     color: #0A5436;
-    font-family: 'Roboto';
     font-size: 38px;
 }
 
 .subtitulo {
     margin-top: 0;
-    font-family: 'Roboto';
     color: #4E504D;
     font-size: 26px;
 }
@@ -313,7 +304,6 @@ body {
 
 h2 {
     display: flex;
-    font-family: 'Roboto';
     color: #4E504D;
     font-size: 20px;
     margin-top: 95px;
@@ -323,13 +313,11 @@ h1 {
     margin-top: 70px;
     font-size: 22px;
     font-weight: 0;
-    font-family: 'Roboto';
     color: #4E504D;
 }
 
 .textoh3 {
     display: flex;
-    font-family: 'Roboto';
     color: #5E8C77;
     margin-left: 27px;
     margin-right: 5px;
@@ -358,7 +346,6 @@ h1 {
     font-size: 30px;
     color: #CDD6CB;
     position: absolute;
-    font-family: 'Roboto';
 }
 
 .topo {
@@ -391,7 +378,6 @@ h1 {
     background-color:#CDD6CB;
     border: 0;
     border-radius: 5px;
-    font-family: 'Roboto';
     font-size: 22px;
 }
 
@@ -404,7 +390,6 @@ h1 {
     background-color:#CDD6CB;
     border: 0;
     border-radius: 5px;
-    font-family: 'Roboto';
     font-size: 22px;
 }
 
@@ -415,7 +400,6 @@ h1 {
     margin-bottom: 20px;
     background-color:#CDD6CB;
     align-items: center;
-    font-family: 'Roboto';
     font-size: 22px;
     border: 0;
     border-radius: 5px;
@@ -456,13 +440,11 @@ h1 {
 .graosafe {
     font-size: 40px;
     color: #FAF2FF;
-    font-family: 'Raleway';
     font-weight: 500;
 }
 
 .frasefinal {
     font-size: 20px;
-    font-family: 'Raleway';
     color: #FAF2FF;
     font-weight: normal;
 }
