@@ -64,22 +64,25 @@
     var senha2 = input_senha2.value;
 
     if(email == "" || senha1 == "" || senha2 == "") {
-      mensagem = `<span style="color: red;">* Preencha todos os campos</span>`
+      mensagem = `<span style="color: red;">* Preencha todos os campos.</span>`
     }
-    else if(!email.includes('@')) {
-      msgEmail.innerHTML  = `<span style="color: red;">Email inválido. Email deve conter "@".</span>`
+    else if(!email.includes('@') || !email.includes('.')) {
+      msgEmail.innerHTML  = `<span style="color: red;">Email inválido. Email deve conter "@" e ".".</span>`
     }
     else if (email != email.toLowerCase()) {
       msgEmail.innerHTML = `<span style="color: red;">Email inválido. Email deve conter apenas letras minúsculas.</span>`
     }
-    else if(senha1.length <6 || senha1.length > 12) {
-      msgSenha.innerHTML = `<span style="color: red;">Senha inválida. A senha deve conter entre 6 e 12 caracteres</span>`
+    else if(senha1.length < 6 || senha1.length > 12) {
+      msgSenha.innerHTML = `<span style="color: red;">Senha inválida. A senha deve conter entre 6 e 12 caracteres.</span>`
+    }
+    else if (!senha1.includes('!') && !senha1.includes('@') && !senha1.includes('#') && !senha1.includes('_') && !senha1.includes('-') && !senha1.includes('.')) {
+      msgSenha.innerHTML   = `<span style="color: red;">* Senha fraca. Senha deve conter caracteres especiais ("!", "@", "#", "_", "-", ".").</span>`
     }
     else if(senha2 != senha1) {
       msgNovaSenha.innerHTML = `<span style="color: red;">As senhas devem ser iguais.</span>`
     }
     else{
-      window.location.href = "./home.html";
+      window.location.href = "./home-login.html";
     }
     
     div_mensagem.innerHTML = mensagem;

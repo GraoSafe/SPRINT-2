@@ -33,19 +33,23 @@
           <div class="formulario">
             <div class="campo">
               <span>E-mail:</span>
-              <input id="email_input" type="text" placeholder="Digite seu email">
+              <input id="email_input" type="text" placeholder="Digite seu email"><br>
+              <div id="divEmail"></div>
             </div>
             <div class="campo">
               <span>Senha:</span>
               <input id="senha_input" type="password" placeholder="Digite sua senha">
             </div>
+            <div id="divSenha"></div>
+            <br>
+            <div id="div_mensagem"></div>
 
             <a href="senha.html" class="esqueci">Esqueci minha senha</a>
 
-            <a href="./home-login.html"><button class="botao">Entrar</button></a>
+            <a><button class="botao" onclick="entrar()">Entrar</button></a>
 
             <div class="campo">
-              <span>Não Possui Conta?:</span>
+              <span>Não Possui Conta?</span>
               <a href="./registro.html"><button class="botao">Registre-se</button></a>
             </div>
           </div>
@@ -58,3 +62,31 @@
 </body>
 
 </html>
+
+<script>
+
+  function entrar() {
+    var mensagem = "";
+    var email = email_input.value;
+    var senha = senha_input.value;
+
+    if(email == "" || senha == "") {
+      mensagem = `<span style="color: red;">* Preencha todos os campos</span>`
+    }
+    else if (!email.includes('@') || !email.includes('.') || email !== email.toLowerCase()) {
+      divEmail.innerHTML = `<span style="color: red;">* Email incorreto.</span>`
+    }
+    else if (senha.length < 6 || senha.length > 12) {
+      divSenha.innerHTML = `<span style="color: red;">* Senha incorreta.</span>`
+    }
+    else if (!senha.includes('!') && !senha.includes('@') && !senha.includes('#') && !senha.includes('_') && !senha.includes('-') && !senha.includes('.')) {
+      divSenha.innerHTML = `<span style="color: red;">* Senha incorreta.`;
+    }
+    else {
+      window.location.href = "./home-login.html";
+    }
+    div_mensagem.innerHTML = mensagem;
+  }
+
+</script>
+

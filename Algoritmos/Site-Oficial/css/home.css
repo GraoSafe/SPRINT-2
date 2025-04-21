@@ -55,6 +55,22 @@ body {
     padding-right: 50px;
     transition: background-color 0.3s;
 }
+.volta {
+    background-color: #4E504D;
+    position: absolute;
+    text-decoration: none;
+    top: 35px;
+    right: 85px;
+    border-radius: 5px;
+    height: fit-content;
+    width: fit-content;
+
+    font-size: 25px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 50px;
+    padding-right: 50px; 
+}
 
 .input-local {
     text-align: center;

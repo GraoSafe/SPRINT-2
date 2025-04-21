@@ -18,11 +18,9 @@
         <img src="../Imagens/GraoSafe.png" class="img">
     </div>
 
-    <div class="login border login-button">
+    <div class="volta">
         <div style="width: 100%; height: 100%;">
-        <a href="./login.html">
-        <span style="color: #FAF2FF; pointer-events:none;"><b>Login</b></span>
-        </a>
+            <span style="color: #FAF2FF; pointer-events:none;"><b>SEJA BEM VINDO DE VOLTA</b></span>
         </div>
     </div>
 
@@ -55,13 +53,15 @@
                     src="https://s3-alpha-sig.figma.com/img/d70b/90a3/2b73a55b5cd28b1b71479608f7d6cb2e?Expires=1744588800&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=O8O92FLLUsuyFYC8ig7RpIKUHJ7P6291POVZmcDs6MZUjtmXwqsjDTrH2cqu89Mq2B6cCDzWN6Bj5Dij5d8ziSLtg~i04cYB0IiBlFIBF0UUjlHPqVMd538o4KwI1jycf0xthjtSf9wsNxDqpK6vq2EXG~DGQAqfKNQr7lwUz8FHc3V9CA0PlaghWBm93pwxv-syze3~4q39oL4lKbdlABEjF96YkKu4TLH7R3GIPlo3csIvSniRHiDQ1MDWbiCpGq-~M3XP-boy5ZuN~rMWqKb5UWSVdj5tYXCnH-jLAZzEPgglzVMiK~mzumKf0Q6Qo~K4sX-dEU85uJe0V3mG6Q__">
             </div>
         </div>
-        
+
     </div>
 
     <div class="contato"></div>
 
 
-    <div> <button class="botao">Contato</button></div>
+    <div> <button class="botao" onclick="document.getElementById('contato').scrollIntoView({ behavior: 'smooth' })">
+            Contato
+        </button></div>
 
     <div class="div_pai">
 
@@ -103,7 +103,7 @@
                     <h3>Com dashboards intuitivos, gestores tomam decisões rápidas para evitar perdas e otimizar a
                         armazenagem</h3>
                 </div>
-                
+
             </div>
 
 
@@ -115,12 +115,12 @@
         <img class="topo" src="../Imagens/forma topo.png">
         <div class="container_mae">
 
-            
-            
+
+
 
         </div>
 
-        <h1 class="titulo3">Entre em contato</h1>
+        <h1 id="contato" class="titulo3">Entre em contato</h1>
 
         <div class="dados">
 
@@ -149,4 +149,5 @@
     </div>
 
 </body>
+
 </html>

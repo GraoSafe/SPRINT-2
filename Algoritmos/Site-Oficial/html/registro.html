@@ -1,69 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/login-registro.css">
-    <script src="../javascript/login-reistro.js"></script>
-    <link href='https://fonts.googleapis.com/css?family=Jost' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
-    
-    <title>Faça seu login!</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/login-registro.css">
+  <script src="../javascript/login-reistro.js"></script>
+  <link href='https://fonts.googleapis.com/css?family=Jost' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
+
+  <title>Faça seu login!</title>
 </head>
+
 <body>
-                <div class="container">
-                  <div class="img-bg">
-                  </div> 
-                        <div class="coluna">
+  <div class="container">
+    <div class="img-bg">
+    </div>
+    <div class="coluna">
 
-                      <div class="container-login">
+      <div class="container-login">
 
-                            <div class="buttom-back">
-                              <a href="./login.html"><img src="../Imagens/Seta.png" alt="" class="img-g">
-                              </a>
-                              <h1>VOLTAR</h1>
-                            </div>
-                                
-                                <div class="card card-login"> 
-                                  <h2>Crie a Sua Conta!</h2> 
-                          
-                                      <div class="formulario"> 
+        <div class="buttom-back">
+          <a href="./login.html"><img src="../Imagens/Seta.png" alt="" class="img-g">
+          </a>
+          <h1>VOLTAR</h1>
+        </div>
 
-                                          <div class="campo"> 
-                                            <span id="span_nome">Nome:</span>
-                                            <input id="input_nome" type="text" placeholder="Digite seu nome"><br>
-                                            <div id="nomeCarac"></div>
-                                          </div> 
+        <div class="card card-login">
+          <h2>Crie a Sua Conta!</h2>
 
-                                          <div class="campo"> 
-                                            <span id="span_email"><div id="div_email_verify" class="verify-text"></div>E-mail:</span> 
-                                            <input id="input_email" type="text" placeholder="Digite seu email"><br>
-                                            <div id="emailCarac"></div> 
-                                          </div> 
+          <div class="formulario">
 
-                                          <div class="campo"> 
-                                            <span id="span_senha"><div id="div_senha_verify" class="verify-text"></div>Senha:</span>
-                                            <input id="input_senha" type="password" placeholder="Digite sua senha"><br>
-                                            <div id="senhaCarac"></div>
-                                          </div> 
-                                          
-                                        <div class="campo"> 
-                                          <span id="span_cpf_cnpj">CPF ou CNPJ (APENAS NÚMEROS):</span> 
-                                          <input maxlength="14" minlength="11" id="input_cpf_cnpj" type="text" placeholder="Digite seu CPF/CNPJ"><br>
-                                          <div id="cpf_cnpjCarac"></div>
-                                        </div> 
-                                    <div id="div_Login_Alert" class="verify-text"></div>
-                          
-                                    <button class="botao" onclick="Verify_Variables()">Continuar</button>
-                                  </div> 
-                                </div>  
-                           </div>
-                      </div>
-                  </div>
+            <div class="campo">
+              <span id="span_nome">Nome:</span>
+              <input id="input_nome" type="text" placeholder="Digite seu nome"><br>
+              <div id="nomeCarac"></div>
+            </div>
 
-              
+            <div class="campo">
+              <span id="span_email">
+                <div id="div_email_verify" class="verify-text"></div>E-mail:
+              </span>
+              <input id="input_email" type="text" placeholder="Digite seu email"><br>
+              <div id="emailCarac"></div>
+            </div>
+
+            <div class="campo">
+              <span id="span_senha">
+                <div id="div_senha_verify" class="verify-text"></div>Senha:
+              </span>
+              <input id="input_senha" type="password" placeholder="Digite sua senha"><br>
+              <div id="senhaCarac"></div>
+            </div>
+
+            <div class="campo">
+              <span id="span_cpf_cnpj">CPF ou CNPJ (APENAS NÚMEROS):</span>
+              <input maxlength="14" minlength="11" id="input_cpf_cnpj" type="text"
+                placeholder="Digite seu CPF/CNPJ"><br>
+              <div id="cpf_cnpjCarac"></div>
+            </div>
+            <div id="div_Login_Alert" class="verify-text"></div>
+
+            <button class="botao" onclick="Verify_Variables()">Continuar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
 </body>
+
 </html>
 
 <script>
@@ -74,19 +82,30 @@
     var senha = input_senha.value;
     var cpfCNPJ = input_cpf_cnpj.value;
 
-    if (nome == "" && email == "" && senha == "" && cpfCNPJ == "") {
-      nomeCarac.innerHTML = `<span style="color: red;">* Campo obrigatório</span>`
-
-      emailCarac.innerHTML = `<span style="color: red;">* Campo obrigatório</span>`
-
-      senhaCarac.innerHTML = `<span style="color: red;">* Campo obrigatório</span>`
-
-      cpf_cnpjCarac.innerHTML = `<span style="color: red;">* Campo obrigatório</span>`
+    if (nome == "" || email == "" || senha == "" || cpfCNPJ == "") {
+      cpf_cnpjCarac.innerHTML = `<span style="color: red;">* Preencha todos os campos</span>`;
     }
-    else{
-      window.location.href = "./home.html";
+    else if (!email.includes('@') || !email.includes('.')) {
+      emailCarac.innerHTML = `<span style="color: red;">* Email inválido. Deve conter "@" e ".". </span>`;
     }
-    
+    else if (email != email.toLowerCase()) {
+      emailCarac.innerHTML += `<span style="color: red;">* Apenas letras minúsculas. </span>`
+    }
+    else if (senha.length < 6 || senha.length > 12) {
+      senhaCarac.innerHTML = `<span style="color: red;">* Senha deve conter entre 6 e 12 caracteres.</span>`;
+    }
+    else if (!senha.includes('!') && !senha.includes('@') && !senha.includes('#') && !senha.includes('_') && !senha.includes('-') && !senha.includes('.')) {
+      senhaCarac.innerHTML = `    `;
+    }
+    else if (cpfCNPJ.length !== 11 && cpfCNPJ.length !== 14) {
+      cpf_cnpjCarac.innerHTML = `<span style="color: red;">CPF ou CNPJ inválido.</span>`;
+    }
+    else if (/[^0-9]/.test(cpfCNPJ)) {
+      cpf_cnpjCarac.innerHTML = `<span style="color: red;">CPF ou CNPJ inválido. Apenas números.</span>`
+    }
+    else {
+      window.location.href = "./home-login.html";
+    }
   }
 
 </script>
