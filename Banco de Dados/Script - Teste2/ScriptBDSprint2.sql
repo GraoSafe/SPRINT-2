@@ -1,12 +1,13 @@
 -- Criando o banco de dados
 CREATE DATABASE GraoSafe;
 USE GraoSafe;
+DROP DATABASE GraoSafe;
 
--- Criandos Tabelas
-CREATE TABLE Cliente(
+-- CRIAÇÃO DA TABELA CLIENTE.
+CREATE TABLE cliente(
 idCliente INT PRIMARY KEY AUTO_INCREMENT,
 nomeEmpresa VARCHAR(50) NOT NULL,
-cnpj CHAR(14) NOT NULL,
+cnpj_cpf VARCHAR(14) NOT NULL,
 dtCadastro DATETIME DEFAULT CURRENT_TIMESTAMP,
 email VARCHAR(100) NOT NULL UNIQUE, 
 CONSTRAINT checkEmail check(email LIKE '%@%'),
@@ -14,7 +15,8 @@ senha VARCHAR(100) NOT NULL,
 telefone VARCHAR(14) UNIQUE NOT NULL
 );
 
-CREATE TABLE Endereço(
+-- CRIAÇÃO DA TABELA ENDEREÇO.
+CREATE TABLE endereco(
 idEndereco INT PRIMARY KEY AUTO_INCREMENT,
 UF CHAR(2) NOT NULL,
 rua VARCHAR(100) NOT NULL,
@@ -25,7 +27,8 @@ fkCliente int NOT NULL,
 constraint fkEndeCli FOREIGN KEY (fkCliente) REFERENCES Cliente(idCliente)
 );
 
-CREATE TABLE Silo(
+-- CRIAÇÃO DA TABELA SILO.
+CREATE TABLE silo(
 idSilo INT PRIMARY KEY AUTO_INCREMENT,
 nome VARCHAR(45),
 tipo VARCHAR (50) NOT NULL,
@@ -35,7 +38,8 @@ CONSTRAINT fkSiloCli FOREIGN KEY (fkClienteSilo) REFERENCES Cliente(idCliente),
 capacidadeTonelada INT NOT NULL
 );
 
-CREATE TABLE SensorLM35(
+-- CRIAÇÃO DA TABELA SENSORLM35	.
+CREATE TABLE sensorLM35(
 idSensor INT PRIMARY KEY AUTO_INCREMENT,
 dtInstalacao DATETIME,
 dtManutencao DATETIME,
@@ -45,6 +49,7 @@ fkSilo INT NOT NULL,
 CONSTRAINT fkSiloSensor FOREIGN KEY (fkSilo) REFERENCES Silo(idSilo)
 );
 
+-- CRIAÇÃO DA TABELA DADOSENSOR.
 CREATE TABLE dadoSensor (
 idDado INT PRIMARY KEY AUTO_INCREMENT,
 temperatura FLOAT NOT NULL,
@@ -53,80 +58,78 @@ fkSensor INT NOT NULL,
 CONSTRAINT fkSensorDado FOREIGN KEY (fkSensor) REFERENCES SensorLM35(idSensor)
 );
 
--- Inserindo dados
-INSERT INTO Cliente (nomeEmpresa, cnpj, dtCadastro, email, senha, telefone) VALUES
+-- INSERINDO DADOS DA TABELA CLIENTE.
+INSERT INTO cliente (nomeEmpresa, cnpj_cpf, dtCadastro, email, senha, telefone) VALUES
 ('Empresa ABC', 12345678000195,'2015-05-14 15:30:00','empresaabc@gmail.com', 'senha123', 5511987654321),
 ('Tech Solutions', 98765432000100,'2019-11-25 13:00:00','techsolutions@hotmail.com', 'senha456', 5511976543210),
 ('Logistica LTDA', 19283746500010,'2023-03-17 18:30:00','logistica.ltda@outlook.com', 'senha789', 5511965432109); 
 
-INSERT INTO Endereço (UF, rua, bairro, cidade, CEP, fkCliente) VALUES
+-- INSERINDO DADOS DA TABELA ENDEREÇO.
+INSERT INTO endereco (UF, rua, bairro, cidade, CEP, fkCliente) VALUES
 ('SP', 'Rua A', 'Bairro X', 'São Paulo', 12345678, 1),
 ('RJ', 'Rua B', 'Bairro Y', 'Rio de Janeiro', 87654321, 2),
 ('MG', 'Rua C', 'Bairro Z', 'Belo Horizonte', 23456789, 3);
 
-INSERT INTO Silo (nome, tipo, fkClienteSilo, capacidadeTonelada) VALUES
+-- INSERINDO DADOS DA TABELA SILO.
+INSERT INTO silo (nome, tipo, fkClienteSilo, capacidadeTonelada) VALUES
 ('Silo A', 'Silo de concreto',1, 124),
 ('Silo Central', 'Silo de concreto',2, 378),
 ('Silo Norte', 'Silo metálico',3, 92);
 
-INSERT INTO SensorLM35 (dtInstalacao, dtManutencao, statusSensor,fkSilo)VALUES
+-- INSERINDO DADOS DA TABELA SENSORLM35
+INSERT INTO sensorLM35 (dtInstalacao, dtManutencao, statusSensor,fkSilo)VALUES
 ('2025-03-05 14:30:00','2023-03-11 11:00:00','Ativo',1),
 ('2024-01-10 09:00:00', '2025-02-25 16:45:00', 'Inativo',2),
 ('2024-03-10 13:00:00', '2025-02-28 11:00:00', 'Inativo',3);
 
 -- EXIBINDO OS DADOS DA EMPRESA.
-SELECT c.nomeEmpresa AS 'Nome do Cliente',
-e.rua AS 'Rua',
-e.bairro AS 'Bairro',
-e.cidade AS 'Cidade',
-s.nome AS 'Nome do Silo',
-s.tipo AS 'Tipo de Silo',
-capacidadeTonelada AS 'Capacidade em Toneladas',
-l.statusSensor AS 'Status do Sensor'
-FROM Cliente AS c JOIN Endereço AS e ON c.idCliente = e.fkCliente
-JOIN Silo AS s ON e.idEndereco = s.fkClienteSilo
-JOIN SensorLM35 AS l ON s.idSilo = l.fkSilo;
+SELECT c.nomeEmpresa AS 'Nome da Empresa',
+c.cnpj_cpf AS 'CPF ou CNPJ',
+c.email AS 'Email',
+c.senha AS 'Senha',
+c.telefone AS 'Telefone',
+c.dtCadastro AS 'Data de cadastro'
+FROM cliente AS c;
 
 -- SELECT COM DADOS DO SENSOR E DA TEMPERATURA
 SELECT c.nomeEmpresa AS 'Nome da empresa',
 s.nome AS 'Nome do silo', s.tipo AS 'Tipo de silo', l.dtInstalacao AS 'Data de instalação do sensor',
 l.dtManutencao AS 'Data de Manutenção', l. statusSensor AS 'Status do sensor' FROM
-Cliente AS c JOIN Endereço AS e ON c.idCliente = e.fkCliente
-JOIN Silo AS s ON e.idEndereco = s.fkClienteSilo
-JOIN SensorLM35 AS l ON s.idSilo = l.fkSilo;
+cliente AS c JOIN endereco AS e ON c.idCliente = e.fkCliente
+JOIN silo AS s ON e.idEndereco = s.fkClienteSilo
+JOIN sensorLM35 AS l ON s.idSilo = l.fkSilo;
 
 -- EXIBINDO OS DADOS DAS EMPRESAS E OS DADOS DE SEUS SILOS
-select c.nomeEmpresa as 'Nome da Empresa',
-c.email as 'Email',
-c.senha as 'Senha',
-c.cnpj as 'CNPJ',
-c.telefone as 'Contato',
-
+SELECT c.nomeEmpresa AS 'Nome da Empresa',
+c.email AS 'Email',
+c.senha AS 'Senha',
+c.cnpj_cpf AS 'CNPJ',
+c.telefone AS 'Contato',
 e.CEP,
-e.rua as 'Rua',
-e.bairro as 'Bairro',
+e.rua AS 'Rua',
+e.bairro AS 'Bairro',
 e.cidade as 'Cidade',
 e.UF,
-s.nome as 'Nome do Silo',
-s.tipo as 'Tipo de Silo',
-s.capacidadeTonelada as 'Capacidade do Silo em toneladas',
+s.nome AS 'Nome do Silo',
+s.tipo AS 'Tipo de Silo',
+s.capacidadeTonelada AS 'Capacidade do Silo em toneladas',
 lm.statusSensor AS 'Status do sensor',
 lm.dtInstalacao AS 'Data de instalação do sensor',
 lm.dtManutencao AS 'Data de manutenção do sensor',
 c.dtCadastro AS 'Quando se cadastrou'
-FROM Cliente AS c JOIN Endereço AS e ON e.fkCliente = c.idCliente
-JOIN Silo AS s ON s.fkClienteSilo = c.idCliente
+FROM cliente AS c JOIN endereco AS e ON e.fkCliente = c.idCliente
+JOIN silo AS s ON s.fkClienteSilo = c.idCliente
 JOIN SensorLM35 AS lm ON lm.fkSilo = s.idSilo;
 
--- Atualizando e deletando dados da Empresa Tech Solutions
-update Endereço set rua = 'Rua Delta R' where idEndereco = 2;
-update Endereço set bairro = 'Dos techs' where idEndereco = 2;
-update Endereço set cidade = 'Rio Grande do Norte' where idEndereco = 2;
-update Endereço set CEP = '04849220'where idEndereco = 2;
-update Endereço set UF = 'RN' where idEndereco = 2;
+-- ATUALIZANDO E DELETANDO DADOS DA EMPRESA TECH SOLUTIONS
+UPDATE endereco SET rua = 'Rua Delta R' WHERE idEndereco = 2;
+UPDATE endereco SET bairro = 'Dos techs' WHERE idEndereco = 2;
+UPDATE endereco SET cidade = 'Rio Grande do Norte' WHERE idEndereco = 2;
+UPDATE endereco SET CEP = '04849220' WHERE idEndereco = 2;
+UPDATE endereco SET UF = 'RN' WHERE idEndereco = 2;
 
 -- DELETANDO OS DADOS DA EMPRESA ABC DEVIDO AO CORTE DE CONTRATO
-delete from Cliente where idCliente = 1;
-delete from Endereço where idEndereco = 1;
-delete from Silo where idSilo = 1;
-delete from SensorLM35 where idSensor = 1; 
+DELETE FROM cliente WHERE idCliente = 1;
+DELETE FROM endereco WHERE idEndereco = 1;
+DELETE FROM silo WHERE idSilo = 1;
+DELETE FROM sensorLM35 WHERE idSensor = 1; 

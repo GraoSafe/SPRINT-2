@@ -90,19 +90,19 @@
 
             mensagem_nome.innerHTML= `<div class="nome-div">${nomeEmpresa}</div>`
             mensagem_principal.innerHTML = `
-            <div class="info-box">
-            A perda média de grãos por armazenamento inadequado, no Brasil, segundo a Companhia Nacional de Abastecimento
-            (Conab/2023), é de <b>15%</b>. <br> <br>
-            </div>
-
             
-            <div id="div_mensagem_ton" class="div_msg_ton"></div>
-            <div class="nome-grafico">GRAFICO PERDA REAL/PERDA CORRIGIDA (Uso do Sensor)</div>
-            <div class="chart-container"><canvas id="myChart" class="main-font"></canvas></div> 
             <div class="info-box2"> Perda real por armazenamento inadequado: 
                 <b>R$${perdaReal.toLocaleString('pt-br', {minimumFractionDigits:2})}</b><br> 
                 Perda corrigida (reduzida a 7,5%): 
                 <b> R$${perdaCorrigida.toLocaleString('pt-br', {minimumFractionDigits:2})}</b> </div>
+            
+            <div id="div_mensagem_ton" class="div_msg_ton"></div>
+            <div class="nome-grafico">GRAFICO PERDA REAL/PERDA CORRIGIDA (Uso do Sensor)</div>
+            <div class="chart-container"><canvas id="myChart" class="main-font"></canvas></div> 
+            <div class="info-box">
+            A perda média de grãos por armazenamento inadequado, no Brasil, segundo a Companhia Nacional de Abastecimento
+            (Conab/2023), é de <b>15%</b>. <br> <br>
+            </div>
             <div id="div_ton_saca" class="ton-saca"></div>
             </div>
             <div id="div_mensagem_perda"></div>
