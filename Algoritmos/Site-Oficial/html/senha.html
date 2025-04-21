@@ -1,50 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/login-registro.css">
-    <script src="../javascript/login-reistro.js"></script>
-    <link href='https://fonts.googleapis.com/css?family=Jost' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
-    <title>Faça seu login!</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/login-registro.css">
+  <script src="../javascript/login-reistro.js"></script>
+  <link href='https://fonts.googleapis.com/css?family=Jost' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
+  <title>Faça seu login!</title>
 </head>
+
 <body>
-                <div class="container">
-                  <div class="img-bg">
-                  </div>
-                  <div class="coluna">
-                    <div class="container-login">
+  <div class="container">
+    <div class="img-bg">
+    </div>
+    <div class="coluna">
+      <div class="container-login">
 
-                        <div class="buttom-back">
-                          <a href="./login.html">
-                            <img src="../Imagens/Seta.png" alt="" class="img-g">
-                          </a>
-                          <h1>VOLTAR</h1>
-                        </div>
-                              <div class="card card-login"> 
-                                <h2>Crie a Sua Senha!</h2> 
-                        
-                                <div class="formulario">
-                                  <div class="campo"> 
-                                    <span>Email para recuperação de senha:</span> 
-                                    <input id="input_senha1" type="text" placeholder="Digite seu email"> 
-                                  </div>
-                                  <div class="campo"> 
-                                    <span>Insira uma nova Senha:</span> 
-                                    <input id="input_senha1" type="password" placeholder="Digite sua senha"> 
-                                  </div> 
-                                  <div class="campo"> 
-                                    <span>Repetir nova Senha:</span> 
-                                    <input id="input_senha2" type="password" placeholder="Digite sua senha"> 
-                                  </div> 
-                                  <button class="botao">Registrar</button> 
-                                </div> 
-                          
-                    </div>
-                  </div>
+        <div class="buttom-back">
+          <a href="./login.html">
+            <img src="../Imagens/Seta.png" alt="" class="img-g">
+          </a>
+          <h1>VOLTAR</h1>
+        </div>
+        <div class="card card-login">
+          <h2>Crie a Sua Senha!</h2>
 
-              
+          <div class="formulario">
+            <div class="campo">
+              <span>Email para recuperação de senha:</span>
+              <input id="input_email" type="text" placeholder="Digite seu email"><br>
+              <div id="msgEmail"></div>
+            </div>
+            <div class="campo">
+              <span>Insira uma nova Senha:</span>
+              <input id="input_senha1" type="password" placeholder="Digite sua senha"><br>
+              <div id="msgSenha"></div>
+            </div>
+            <div class="campo">
+              <span>Repetir nova Senha:</span>
+              <input id="input_senha2" type="password" placeholder="Digite sua senha"><br>
+              <div id="msgNovaSenha"></div>
+            </div>
+            <button onclick="registrar()" class="botao">Registrar</button><br>
+            <div id="div_mensagem"></div>
+          </div>
+
+        </div>
+      </div>
+
+
 </body>
 </html>
+
+<script>
+
+  function registrar() {
+    var mensagem = "";
+    var email = input_email.value;
+    var senha1 = input_senha1.value;
+    var senha2 = input_senha2.value;
+
+    if(email == "" || senha1 == "" || senha2 == "") {
+      mensagem = `<span style="color: red;">* Preencha todos os campos</span>`
+    }
+    else if(!email.includes('@')) {
+      msgEmail.innerHTML  = `<span style="color: red;">Email inválido. Email deve conter "@".</span>`
+    }
+    else if (email != email.toLowerCase()) {
+      msgEmail.innerHTML = `<span style="color: red;">Email inválido. Email deve conter apenas letras minúsculas.</span>`
+    }
+    else if(senha1.length <6 || senha1.length > 12) {
+      msgSenha.innerHTML = `<span style="color: red;">Senha inválida. A senha deve conter entre 6 e 12 caracteres</span>`
+    }
+    else if(senha2 != senha1) {
+      msgNovaSenha.innerHTML = `<span style="color: red;">As senhas devem ser iguais.</span>`
+    }
+    else{
+      window.location.href = "./home.html";
+    }
+    
+    div_mensagem.innerHTML = mensagem;
+  }
+
+</script>
+
