@@ -96,7 +96,28 @@ body {
     border-radius: 8px;
     margin-bottom: 40px;
   }
-
+.titulo{
+  width: fit-content;
+}
+.grafico-caixa{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+  width: 300px;
+  background-color: rgb(209, 203, 203);
+  margin: 50px;
+  padding: 50px;
+  padding-bottom: 10px;
+  border-radius: 30px;
+}
+.grafico-caixa-pai{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 600px;
+}
 .grafico h2 {
     margin-bottom: 20px;
   }
