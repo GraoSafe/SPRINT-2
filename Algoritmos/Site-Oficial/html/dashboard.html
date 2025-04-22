@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link href='https://fonts.googleapis.com/css?family=Jost' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
+    <title>GrãoSafe</title>
+
+</head>
+<body>
+    
+
+        <div class="container">
+            <div class="img-bg">                   
+            </div>
+            <div class="sidebar"> 
+                <div class="usuario">
+                    <img src="../Imagens/usuario2.png" class="img">
+                </div>
+                <div class="navbar-log">
+                <b>
+                <a href="dashboard.html"><span class="tsize">Dashboards</span></a>
+                <a href="#"><span class="tsize">Sensores</span></a>
+                <a href="#"><span class="tsize">Notificações</span></a>
+                </b>
+            </div>
+            
+            <div class="sair">
+                <b>
+                <a href="home.html"><span class="tsize">Sair</span></a>
+                </b>
+            </div>
+        </div>
+                <div class="conteudo"> 
+                    <div class="grafico">
+                        <h1 class="titulo">Overview Gráfico</h1>
+                        <h1 class="titulo">Temperatura Diária</h1>
+                        <canvas id="Grafico1" class="grafico1" style="height: 20px; width: 50px;"></canvas>
+                        <h1 class="titulo">Relatório Mensal de temperatura</h1>
+                        <canvas id="Grafico2" class="grafico2" style="height: 20px; width: 50px;"></canvas>
+                        <h1 class="titulo">Quantidade de alertas semanais</h1>
+                        <canvas id="Grafico3" class="grafico3" style="height: 20px; width: 50px;"></canvas> 
+                        <div class="mãe">
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim sint beatae, voluptate autem sapiente necessitatibus perspiciatis aliquid odit nulla 
+                            minima expedita ipsum consequuntur dicta nam explicabo culpa pariatur, ad accusamus.</p>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        
+</div>
+</body>
+</html>
+<script>
+    var Grafico1 = document.getElementById('Grafico1');
+    var Grafico2 = document.getElementById('Grafico2');
+    var Grafico3 = document.getElementById('Grafico3');
+
+    new Chart(Grafico1, {
+                type: 'line',
+                data: {
+                    labels: ['06:00','07:00','08:00','09:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00'],
+                    datasets: [{
+                        label: 'Temperatura',
+                        data: [17, 17,19,20,20,23,31,27,29,25,22],
+                        backgroundColor: ['rgb(253, 43, 86, 0.8)'],
+                        borderColor: ['rgba(255, 99, 132, 1)'],
+                        borderWidth: 1,
+                        barThickness: 100,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            display: true
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+    new Chart(Grafico2, {
+        type: 'doughnut',
+        data:{
+            datasets: [{
+                data: [10, 20, 30],
+                labels: [''],
+                backgroundColor: ['rgb(253, 43, 86, 0.8)', 'rgba(75, 192, 192, 0.8)','rgba(75, 192, 192, 0.8)'],
+                borderColor: ['rgba(255, 99, 132, 1)', 'rgba(75, 192, 192, 1)','rgba(75, 192, 192, 1)'],
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            display: true
+                        }}
+                    }}]
+                }});
+
+    new Chart(Grafico3, {
+    type: 'bar',
+    data: {
+        labels: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+        datasets: [{
+            label: 'Quantidade de alertas por mês',
+            data: [17, 17,10,5,6,4,4,5,12,8,12,19],
+            backgroundColor: ['rgb(253, 43, 86, 0.8)', 'rgba(75, 192, 192, 0.8)'],
+            borderColor: ['rgba(255, 99, 132, 1)', 'rgba(75, 192, 192, 1)'],
+            borderWidth: 1,
+            barThickness: 100,
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: {
+                display: true
+            }
+        },
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+</script>
+

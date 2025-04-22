@@ -1,0 +1,116 @@
+
+body {
+    font-family: Helvetica, sans-serif;
+    }
+
+.img-bg{
+      background-image: url('../Imagens/login-bg.jpg');
+      background-size: contain;
+      filter: blur(4px);
+      position: fixed;
+      margin: -10px 0px 0px -10px;
+      
+      width: 100vw;
+      height: 100vw;
+      z-index: -1;
+  }
+
+.container {
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    margin: -10px 0px -10px -10px
+    }
+
+.usuario img{
+        height: 100px;
+        width: 100%;
+        padding: 0px 0px 10px 0px;
+    }
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    background-color: #CDD6CB;
+    width: 200px;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+  }
+
+.navbar-log a,
+.sair a {
+    display: block;
+    color: rgba(27, 28, 29);
+    font-size: 25px;
+    text-decoration: none;
+    margin-bottom: 15px;
+    transition: all 0.3s ease-in-out;
+  }
+
+.navbar-log a:hover,
+.sair a:hover {
+    color: rgb(240, 91, 37);
+  }
+
+.conteudo {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 30px;
+    overflow-y: auto;
+  }
+
+.navbar-centro{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.navbar-centro a {
+    background-color:  #CDD6CB;
+    color: rgba(27, 28, 29);
+    font-size: 25px;
+    text-decoration: none;
+    padding: 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+  }
+
+.navbar-centro a:hover{
+  background-color: rgb(240, 91, 37);
+}
+
+.grafico {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-color:  #CDD6CB;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 40px;
+  }
+
+.grafico h2 {
+    margin-bottom: 20px;
+  }
+
+.mãe {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 50px 0 0 0;
+    background-color:  #CDD6CB;
+  }
+
+.mãe p {
+    font-weight: bolder;
+    font-family: Arial, Helvetica, sans-serif;
+  }
