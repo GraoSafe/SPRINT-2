@@ -9,6 +9,7 @@
   <link href='https://fonts.googleapis.com/css?family=Jost' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 
   <title>Faça seu login!</title>
 </head>
@@ -73,6 +74,9 @@
 </body>
 
 </html>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js">
+
+</script>
 
 <script>
 
@@ -84,24 +88,59 @@
 
     if (nome == "" || email == "" || senha == "" || cpfCNPJ == "") {
       cpf_cnpjCarac.innerHTML = `<span style="color: red;">* Preencha todos os campos</span>`;
+      Toastify({
+      text: "Alert: Preencha todos os campos!",
+      duration: 3000,
+      style: {
+      background: "linear-gradient(to right, #FF8C00, #FF4500)",
+        },
+      }).showToast();
     }
     else if (!email.includes('@') || !email.includes('.')) {
       emailCarac.innerHTML = `<span style="color: red;">* Email inválido. Deve conter "@" e ".". </span>`;
+      Toastify({
+      text: "Alert: Campos Inválidos! Deve conter @ e .",
+      duration: 3000,
+      style: {
+      background: "linear-gradient(to right, #FF8C00, #FF4500)",
+        },
+      }).showToast();
     }
     else if (email != email.toLowerCase()) {
       emailCarac.innerHTML += `<span style="color: red;">* Apenas letras minúsculas. </span>`
     }
     else if (senha.length < 6 || senha.length > 12) {
       senhaCarac.innerHTML = `<span style="color: red;">* Senha deve conter entre 6 e 12 caracteres.</span>`;
+      Toastify({
+      text: "Alert: Campos Inválidos! Senha deve conter entre 6 e 12 caracteres",
+      duration: 3000,
+      style: {
+      background: "linear-gradient(to right, #FF8C00, #FF4500)",
+        },
+      }).showToast();
     }
     else if (!senha.includes('!') && !senha.includes('@') && !senha.includes('#') && !senha.includes('_') && !senha.includes('-') && !senha.includes('.')) {
       senhaCarac.innerHTML = `    `;
     }
     else if (cpfCNPJ.length !== 11 && cpfCNPJ.length !== 14) {
       cpf_cnpjCarac.innerHTML = `<span style="color: red;">CPF ou CNPJ inválido.</span>`;
+      Toastify({
+      text: "Alert: Campos Inválidos! CPF ou CNPJ inválido ",
+      duration: 3000,
+      style: {
+      background: "linear-gradient(to right, #FF8C00, #FF4500)",
+        },
+      }).showToast();
     }
     else if (/[^0-9]/.test(cpfCNPJ)) {
       cpf_cnpjCarac.innerHTML = `<span style="color: red;">CPF ou CNPJ inválido. Apenas números.</span>`
+      Toastify({
+      text: "Alert: Campos Inválidos! CPF ou CNPJ inválido",
+      duration: 3000,
+      style: {
+      background: "linear-gradient(to right, #FF8C00, #FF4500)",
+        },
+      }).showToast();
     }
     else {
       window.location.href = "./home-login.html";

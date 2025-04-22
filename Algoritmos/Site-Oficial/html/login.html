@@ -9,6 +9,8 @@
   <link href='https://fonts.googleapis.com/css?family=Jost' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
 
   <title>Faça seu login!</title>
 </head>
@@ -62,28 +64,57 @@
 </body>
 
 </html>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js">
 
+</script>
 <script>
-
   function entrar() {
     var mensagem = "";
     var email = email_input.value;
     var senha = senha_input.value;
 
     if(email == "" || senha == "") {
-      mensagem = `<span style="color: red;">* Preencha todos os campos</span>`
+      mensagem = `<span style="color: red;">* Preencha todos os campos</span>`;
+      Toastify({
+      text: "Alert: Preencha todos os campos!",
+      duration: 3000,
+      style: {
+      background: "linear-gradient(to right, #FF8C00, #FF4500)",
+        },
+      }).showToast();
     }
     else if (!email.includes('@') || !email.includes('.') || email !== email.toLowerCase()) {
-      divEmail.innerHTML = `<span style="color: red;">* Email incorreto.</span>`
+      divEmail.innerHTML = `<span style="color: red;">* Email incorreto.</span>`;
+      Toastify({
+      text: "Error: Email incorreto!",
+      duration: 3000,
+      style: {
+      background: "linear-gradient(to right, #FF0000, #FF4500)",
+        },
+      }).showToast();
     }
     else if (senha.length < 6 || senha.length > 12) {
-      divSenha.innerHTML = `<span style="color: red;">* Senha incorreta.</span>`
+      divSenha.innerHTML = `<span style="color: red;">* Senha incorreta.</span>`;
+      Toastify({
+      text: "Error: Senha incorreta!",
+      duration: 3000,
+      style: {
+      background: "linear-gradient(to right, #FF0000, #FF4500)",
+        },
+      }).showToast();
     }
     else if (!senha.includes('!') && !senha.includes('@') && !senha.includes('#') && !senha.includes('_') && !senha.includes('-') && !senha.includes('.')) {
-      divSenha.innerHTML = `<span style="color: red;">* Senha incorreta.`;
+      divSenha.innerHTML = `<span style="color: red;">* Senha incorreta.</span>`;
+        Toastify({
+      text: "Error: Senha incorreta!",
+      duration: 3000,
+      style: {
+      background: "linear-gradient(to right, #FF0000, #FF4500)",
+        },
+      }).showToast();
     }
     else {
-      window.location.href = "./home-login.html";
+      window.location.href = "./dashboard.html";
     }
     div_mensagem.innerHTML = mensagem;
   }

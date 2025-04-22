@@ -222,6 +222,17 @@ input:focus {
     font-size: 15px;
 }
 
+::-webkit-scrollbar{
+    width: 10px;
+    background-color:#FAF2FF;
+    box-shadow: 2px 0px 2px #FAF2FF;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: #0A5436;
+    border-radius: 5px;
+}
+
 /* @media (max-width: 768px) {
     .coluna {
     width: 90%;

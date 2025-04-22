@@ -10,6 +10,7 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Inclusão da biblioteca Chart.js -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 </head>
 
 <body>
@@ -68,6 +69,9 @@
 
 </body> 
 </html>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js">
+
+</script>
     <script>
         var myChartInstance = null; // Variável global para armazenar a instância do gráfico
 
@@ -78,7 +82,13 @@
 
             // Validação dos campos preenchidos
             if (!nomeEmpresa || qtdToneladas <= 0 || valorSaca <= 0) {
-                alert("PREENCHA TODOS OS CAMPOS");
+                Toastify({
+      text: "Alert: Preencha todos os campos!",
+      duration: 3000,
+      style: {
+      background: "linear-gradient(to right, #FF8C00, #FF4500)",
+        },
+      }).showToast();
                 return;
             }
 

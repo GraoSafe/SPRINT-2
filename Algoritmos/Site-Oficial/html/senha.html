@@ -9,6 +9,7 @@
   <link href='https://fonts.googleapis.com/css?family=Jost' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
   <title>Faça seu login!</title>
 </head>
 
@@ -54,6 +55,9 @@
 
 </body>
 </html>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js">
+
+</script>
 
 <script>
 
@@ -64,22 +68,64 @@
     var senha2 = input_senha2.value;
 
     if(email == "" || senha1 == "" || senha2 == "") {
-      mensagem = `<span style="color: red;">* Preencha todos os campos.</span>`
+      mensagem = `<span style="color: red;">* Preencha todos os campos.</span>`;
+      Toastify({
+      text: "Alert: Preencha todos os campos!",
+      duration: 3000,
+      style: {
+      background: "linear-gradient(to right, #FF8C00, #FF4500)",
+        },
+      }).showToast();
     }
     else if(!email.includes('@') || !email.includes('.')) {
-      msgEmail.innerHTML  = `<span style="color: red;">Email inválido. Email deve conter "@" e ".".</span>`
+      msgEmail.innerHTML  = `<span style="color: red;">Email inválido. Email deve conter "@" e ".".</span>`;
+      Toastify({
+      text: "Alert: Campos Inválidos! Email deve conter @ e .",
+      duration: 3000,
+      style: {
+      background: "linear-gradient(to right, #FF8C00, #FF4500)",
+        },
+      }).showToast();
     }
     else if (email != email.toLowerCase()) {
-      msgEmail.innerHTML = `<span style="color: red;">Email inválido. Email deve conter apenas letras minúsculas.</span>`
+      msgEmail.innerHTML = `<span style="color: red;">Email inválido. Email deve conter apenas letras minúsculas.</span>`;
+      Toastify({
+      text: "Alert: Email inválido! Email deve conter apenas letras minúsculas",
+      duration: 3000,
+      style: {
+      background: "linear-gradient(to right, #FF8C00, #FF4500)",
+        },
+      }).showToast();
     }
     else if(senha1.length < 6 || senha1.length > 12) {
-      msgSenha.innerHTML = `<span style="color: red;">Senha inválida. A senha deve conter entre 6 e 12 caracteres.</span>`
+      msgSenha.innerHTML = `<span style="color: red;">Senha inválida. A senha deve conter entre 6 e 12 caracteres.</span>`;
+      Toastify({
+      text: "Alert: Senha inválida! A senha deve conter entre 6 e 12 caracteres",
+      duration: 3000,
+      style: {
+      background: "linear-gradient(to right, #FF8C00, #FF4500)",
+        },
+      }).showToast();
     }
     else if (!senha1.includes('!') && !senha1.includes('@') && !senha1.includes('#') && !senha1.includes('_') && !senha1.includes('-') && !senha1.includes('.')) {
-      msgSenha.innerHTML   = `<span style="color: red;">* Senha fraca. Senha deve conter caracteres especiais ("!", "@", "#", "_", "-", ".").</span>`
+      msgSenha.innerHTML   = `<span style="color: red;">* Senha fraca. Senha deve conter caracteres especiais ("!", "@", "#", "_", "-", ".").</span>`;
+      Toastify({
+      text: "Senha fraca! Senha deve conter caracteres especiais",
+      duration: 3000,
+      style: {
+      background: "linear-gradient(to right, #1E90FF, #4169E1)",
+        },
+      }).showToast();
     }
     else if(senha2 != senha1) {
-      msgNovaSenha.innerHTML = `<span style="color: red;">As senhas devem ser iguais.</span>`
+      msgNovaSenha.innerHTML = `<span style="color: red;">As senhas devem ser iguais.</span>`;
+      Toastify({
+      text: "As senhas devem ser iguais!",
+      duration: 3000,
+      style: {
+      background: "linear-gradient(to right, #1E90FF, #4169E1)",
+        },
+      }).showToast();
     }
     else{
       window.location.href = "./home-login.html";

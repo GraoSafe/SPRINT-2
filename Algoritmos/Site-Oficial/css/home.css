@@ -464,3 +464,13 @@ h1 {
     color: #FAF2FF;
     font-weight: normal;
 }
+
+::-webkit-scrollbar{
+    width: 10px;
+    background-color:#FAF2FF;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: #0A5436;
+    border-radius: 5px;
+}
