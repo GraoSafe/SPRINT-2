@@ -128,7 +128,14 @@
       }).showToast();
     }
     else{
-      window.location.href = "./home-login.html";
+      Toastify({
+      text: "Senha modificada com sucesso!",
+      duration: 3000,
+      style: {
+      background: "linear-gradient(to right, #3CB371, #00FF7F)",
+        },
+      }).showToast();
+      window.location.href = "#";
     }
     
     div_mensagem.innerHTML = mensagem;

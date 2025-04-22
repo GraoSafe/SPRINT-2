@@ -8,6 +8,7 @@
     <link href='https://fonts.googleapis.com/css?family=Jost' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <title>GrãoSafe</title>
 
 </head>
@@ -28,7 +29,6 @@
         <b>
             <a href="./home.html"><span class="tsize">Home</span></a>
             <a href="./calculadora.html"><span class="tsize">Simulação</span></a>
-            <a href="./home.html"><span class="tsize">Contato</span></a>
         </b>
     </div>
 
@@ -142,5 +142,17 @@
     </div>
 
 </body>
-
 </html>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js">
+</script>
+<script>
+    function enviar(){
+        Toastify({
+      text: "Mensagem Enviada!",
+      duration: 3000,
+      style: {
+      background: "linear-gradient(to right, #3CB371, #00FF7F)",
+        },
+      }).showToast();
+    }
+</script>

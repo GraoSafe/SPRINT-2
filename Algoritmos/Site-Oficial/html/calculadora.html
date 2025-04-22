@@ -29,7 +29,6 @@
         <b>
             <a href="./home.html"><span>Home</span></a>
             <a href="./calculadora.html"><span>Simulação</span></a>
-            <a href="./home.html"><span>Contato</span></a>
         </b>
     </div>
 
@@ -72,111 +71,134 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js">
 
 </script>
-    <script>
-        var myChartInstance = null; // Variável global para armazenar a instância do gráfico
+<script>
+    var myChartInstance = null; // Variável global para armazenar a instância do gráfico
 
-        function analisePerda() {
-            var nomeEmpresa = document.getElementById("input_nome").value;
-            var qtdToneladas = Number(document.getElementById("input_toneladas").value);
-            var valorSaca = Number(document.getElementById("input_saca").value);
+    function analisePerda() {
+        var nomeEmpresa = document.getElementById("input_nome").value;
+        var qtdToneladas = Number(document.getElementById("input_toneladas").value);
+        var valorSaca = Number(document.getElementById("input_saca").value);
 
-            // Validação dos campos preenchidos
-            if (!nomeEmpresa || qtdToneladas <= 0 || valorSaca <= 0) {
-                Toastify({
+        var perdaBrasil = 0.15; // Percentual de perda estimado devido ao armazenamento inadequado (15%)
+        var receitaBruta = 0; // Variável para armazenar a receita BRUTA baseada na produção total antes das perdas.
+
+        // Validação dos campos preenchidos
+        if (!nomeEmpresa || qtdToneladas <= 0 || valorSaca <= 0) {
+            Toastify({
       text: "Alert: Preencha todos os campos!",
       duration: 3000,
       style: {
       background: "linear-gradient(to right, #FF8C00, #FF4500)",
         },
       }).showToast();
-                return;
-            }
+            return;
+        }
 
-            // Cálculos de receita, perdas, etc...
-            var perdaReal = (qtdToneladas * 0.15) * valorSaca;
-            var perdaCorrigida = (qtdToneladas * 0.075) * valorSaca;
-            var receitaTotal = qtdToneladas * valorSaca;
-            var perdaAbsoluta = receitaTotal - (qtdToneladas - (qtdToneladas * 0.15)) * valorSaca;
+        // Cálculos de receita, perdas, etc...
+        var perdaReal = (qtdToneladas * 0.15) * valorSaca;
+        var perdaCorrigida = (qtdToneladas * 0.075) * valorSaca;
+        var receitaTotal = qtdToneladas * valorSaca;
+        var perdaAbsoluta = receitaTotal - (qtdToneladas - (qtdToneladas * 0.15)) * valorSaca;
 
-            mensagem_nome.innerHTML= `<div class="nome-div">${nomeEmpresa}</div>`
-            mensagem_principal.innerHTML = `
-            
-            <div class="info-box2"> Perda real por armazenamento inadequado: 
-                <b>R$${perdaReal.toLocaleString('pt-br', {minimumFractionDigits:2})}</b><br> 
-                Perda corrigida (reduzida a 7,5%): 
-                <b> R$${perdaCorrigida.toLocaleString('pt-br', {minimumFractionDigits:2})}</b> </div>
-            
-            <div id="div_mensagem_ton" class="div_msg_ton"></div>
-            <div class="nome-grafico">GRAFICO PERDA REAL/PERDA CORRIGIDA (Uso do Sensor)</div>
-            <div class="chart-container"><canvas id="myChart" class="main-font"></canvas></div> 
-            <div class="info-box">
-            A perda média de grãos por armazenamento inadequado, no Brasil, segundo a Companhia Nacional de Abastecimento
-            (Conab/2023), é de <b>15%</b>. <br> <br>
-            </div>
-            <div id="div_ton_saca" class="ton-saca"></div>
-            </div>
-            <div id="div_mensagem_perda"></div>
-            <div id="div_mensagem_resultado"></div>`
-            
-            // Exibição dos resultados
-            document.getElementById("div_mensagem_ton").innerHTML += `
-                Nome da Empresa: <b>${nomeEmpresa}</b><br> 
-                Quantidade de toneladas: <b>${qtdToneladas} toneladas</b><br> 
-                Valor da saca: <b>R$${valorSaca.toFixed(2)}</b>
-            `;/*
-            document.getElementById("div_mensagem_resultado").innerHTML += `
-                Receita total: <b>R$${receitaTotal.toFixed(2)}</b><br> 
-                Perda Absoluta: <b>R$${perdaAbsoluta.toFixed(2)}</b>
-            `;
-            */
-            // Atualiza o gráfico com os novos dados
-            
-            updateChart(perdaReal, perdaCorrigida);
-            window.scrollBy({
-                top: 800, // Quantidade de pixels a rolar
-                behavior: "smooth" 
-            });
-            }
+        var sacasEmqtdToneladas = ((qtdToneladas * 1000)/60).toFixed(0); //Cálculo da quantidade de sacas de soja de acordo com a quantidade de toneladas produzida pela empresa
+        var perdaDeSacas = (sacasEmqtdToneladas * perdaBrasil).toFixed(0); //Cálculo da quantidade estimada de sacas de soja perdidas devido ao armazenamento inadequado (15%) pelo empresa
+        var perdaDeToneladas = (qtdToneladas * perdaBrasil).toFixed(0); //Cálculo da quantidade estimada de toneladas de soja perdidas devido ao armazenamento inadequado (15%) pela empresa
+
+        var ganhoPorTonelada = ((1000 / 60) * valorSaca); // Cálculo de Receita UMA tonelada de soja produzida, utilizando o peso e valor da saca para o cálculo, será utilizada na mensagem!
+        receitaBruta = ((1000 / 60) * valorSaca) * qtdToneladas; 
+
+        receitaLiquida = receitaBruta - perdaReal; // Cálculo da receita LIQUIDA da empresa considerando a perda de 15%.
+        var receitaLqCorrigida = receitaBruta - perdaCorrigida; // Cálculo da receita LIQUIDA final após a redução da perda.
+        var difReceitas = receitaLqCorrigida - receitaLiquida;
+
+        mensagem_nome.innerHTML= `<div class="nome-div">${nomeEmpresa}</div>`
+        mensagem_principal.innerHTML = `
+
+        <div class="info-box4">Receita líquida total:
+            <b>R$${receitaLiquida.toLocaleString('pt-br', {minimumFractionDigits:2})}</b><br>
+            Receita líquida corrigida:
+            <b>R$${receitaLqCorrigida.toLocaleString('pt-br', {minimumFractionDigits:2})}</b><br>
+            Aumento de receita líquida:
+            <b style="color: green">R$${difReceitas.toLocaleString('pt-br', {minimumFractionDigits:2})}</b> </div>
+
+        <div class="info-box3"> Receita bruta por saca(60kg):
+            <b>R$${ganhoPorTonelada.toLocaleString('pt-br', {minimumFractionDigits:2})}</b><br>
+            Receita bruta total:
+            <b>R$${receitaBruta.toLocaleString('pt-br', {minimumFractionDigits:2})}</b></div>
         
+        <div class="info-box2"> Perda real por armazenamento inadequado: 
+            <b>R$${perdaReal.toLocaleString('pt-br', {minimumFractionDigits:2})}</b><br> 
+            Perda corrigida (reduzida a 7,5%): 
+            <b> R$${perdaCorrigida.toLocaleString('pt-br', {minimumFractionDigits:2})}</b> </div>
+        
+        <div id="div_mensagem_ton" class="div_msg_ton"></div>
+        <div class="nome-grafico">GRAFICO PERDA REAL/PERDA CORRIGIDA (Uso do Sensor)</div>
+        <div class="chart-container"><canvas id="myChart" class="main-font"></canvas></div> 
+        <div class="info-box">
+        A perda média de grãos por armazenamento inadequado, no Brasil, segundo a Companhia Nacional de Abastecimento
+        (Conab/2023), é de <b>15%</b>. <br> <br>
+        </div>
+        <div id="div_ton_saca" class="ton-saca"></div>
+        </div>
+        <div id="div_mensagem_perda"></div>
+        <div id="div_mensagem_resultado"></div>`
+        
+        // Exibição dos resultados
+        document.getElementById("div_mensagem_ton").innerHTML += `
+            Nome da Empresa: <b>${nomeEmpresa}</b><br> 
+            Quantidade de toneladas: <b>${qtdToneladas} toneladas</b><br> 
+            Valor da saca: <b>R$${valorSaca.toFixed(2)}</b>
+        `;/*
+        document.getElementById("div_mensagem_resultado").innerHTML += `
+            Receita total: <b>R$${receitaTotal.toFixed(2)}</b><br> 
+            Perda Absoluta: <b>R$${perdaAbsoluta.toFixed(2)}</b>
+        `;
+        */
+        // Atualiza o gráfico com os novos dados
+        
+        updateChart(perdaReal, perdaCorrigida);
+        window.scrollBy({
+            top: 800, // Quantidade de pixels a rolar
+            behavior: "smooth" 
+        });
+        }
+    
 
-        function updateChart(perdaReal, perdaCorrigida) {
-            var ctx = document.getElementById('myChart').getContext('2d');
+    function updateChart(perdaReal, perdaCorrigida) {
+        var ctx = document.getElementById('myChart').getContext('2d');
 
-            // Se já houver um gráfico desenhado, destrua-o antes de criar um novo
-            if (myChartInstance) {
-                myChartInstance.destroy();
-            }
+        // Se já houver um gráfico desenhado, destrua-o antes de criar um novo
+        if (myChartInstance) {
+            myChartInstance.destroy();
+        }
 
-            // Criar novo gráfico
-            myChartInstance = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: ['Perda Real','Perda Corrigida'],
-                    datasets: [{
-                        label: 'Perdas em R$',
-                        data: [perdaReal, perdaCorrigida],
-                        backgroundColor: ['rgb(253, 43, 86, 0.8)', 'rgba(75, 192, 192, 0.8)'],
-                        borderColor: ['rgba(255, 99, 132, 1)', 'rgba(75, 192, 192, 1)'],
-                        borderWidth: 1,
-                        barThickness: 100,
-                    }]
+        // Criar novo gráfico
+        myChartInstance = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Perda Real','Perda Corrigida'],
+                datasets: [{
+                    label: 'Perdas em R$',
+                    data: [perdaReal, perdaCorrigida],
+                    backgroundColor: ['rgb(253, 43, 86, 0.8)', 'rgba(75, 192, 192, 0.8)'],
+                    borderColor: ['rgba(255, 99, 132, 1)', 'rgba(75, 192, 192, 1)'],
+                    borderWidth: 1,
+                    barThickness: 100,
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: true
+                    }
                 },
-                options: {
-                    responsive: true,
-                    plugins: {
-                        legend: {
-                            display: true
-                        }
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: true
-                        }
+                scales: {
+                    y: {
+                        beginAtZero: true
                     }
                 }
-            });
-        }
-    </script>
-
-
-
+            }
+        });
+    }
+</script>
