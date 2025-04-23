@@ -95,21 +95,21 @@
         }
 
         // Cálculos de receita, perdas, etc...
-        var perdaReal = (qtdToneladas * 0.15) * valorSaca;
-        var perdaCorrigida = (qtdToneladas * 0.075) * valorSaca;
-        var receitaTotal = qtdToneladas * valorSaca;
-        var perdaAbsoluta = receitaTotal - (qtdToneladas - (qtdToneladas * 0.15)) * valorSaca;
+        var perdaReal = (qtdToneladas * 0.15) * valorSaca;//Calculo da perda por mal armazenamento
+        var perdaCorrigida = (qtdToneladas * 0.075) * valorSaca; //Calcula da perda corrigida pela metade
+        var receitaTotal = qtdToneladas * valorSaca;//Calculo da receita total
+        var perdaAbsoluta = receitaTotal - (qtdToneladas - (qtdToneladas * 0.15)) * valorSaca; //Calculo da perda absoluta total
 
         var sacasEmqtdToneladas = ((qtdToneladas * 1000)/60).toFixed(0); //Cálculo da quantidade de sacas de soja de acordo com a quantidade de toneladas produzida pela empresa
         var perdaDeSacas = (sacasEmqtdToneladas * perdaBrasil).toFixed(0); //Cálculo da quantidade estimada de sacas de soja perdidas devido ao armazenamento inadequado (15%) pelo empresa
         var perdaDeToneladas = (qtdToneladas * perdaBrasil).toFixed(0); //Cálculo da quantidade estimada de toneladas de soja perdidas devido ao armazenamento inadequado (15%) pela empresa
 
         var ganhoPorTonelada = ((1000 / 60) * valorSaca); // Cálculo de Receita UMA tonelada de soja produzida, utilizando o peso e valor da saca para o cálculo, será utilizada na mensagem!
-        receitaBruta = ((1000 / 60) * valorSaca) * qtdToneladas; 
+        receitaBruta = ((1000 / 60) * valorSaca) * qtdToneladas; //Calculo da Receita Bruta po saca
 
         receitaLiquida = receitaBruta - perdaReal; // Cálculo da receita LIQUIDA da empresa considerando a perda de 15%.
         var receitaLqCorrigida = receitaBruta - perdaCorrigida; // Cálculo da receita LIQUIDA final após a redução da perda.
-        var difReceitas = receitaLqCorrigida - receitaLiquida;
+        var difReceitas = receitaLqCorrigida - receitaLiquida;//Calculo da diferença das receitas 
 
         mensagem_nome.innerHTML= `<div class="nome-div">${nomeEmpresa}</div>`
         mensagem_principal.innerHTML = `

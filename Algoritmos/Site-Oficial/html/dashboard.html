@@ -35,36 +35,47 @@
                 </b>
             </div>
         </div>
+
                 <div class="conteudo"> 
                     <div class="grafico">
-                        
                         <h1 class="titulo">Overview Gráfico</h1>
                         <div class="grafico-caixa-pai">
 
-                        <div class="grafico-caixa">
+                        <div class="grafico-caixa1">
                             <h1 class="titulo">Temperatura Diária</h1>
-                        <canvas id="Grafico1" class="grafico1" style="height: 600px; width: 500px;"></canvas>
+                        <canvas id="Grafico1" class="grafico1"></canvas>
                         </div>
 
-                        <div class="grafico-caixa">
+                        
+                        <div class="temp-media-atual">
+
+                            <div class="grafico-caixa">
+                                <h1 class="titulo">Temperatura Atual</h1>
+                            <h2 class="temp-atual" id="temp_atual">27.0</h2>
+                            </div>
+
+                            <div class="grafico-caixa">
+                                <h1 class="titulo">Temperatura Média Diaria</h1>
+                                <h2 class="temp-media" id="temp_atual">23.7</h2>
+                            </div>
+
+                        </div>
+
+                        <div class="grafico-caixa-pizza">
                             <h1 class="titulo">Relatório Mensal de temperatura</h1>
                         <canvas id="Grafico2" class="grafico2" style="height: 20px; width: 50px;"></canvas>
                         </div>
-
-                        <div class="grafico-caixa">
-                            <h1 class="titulo">Temperatura Diária</h1>
-                        <canvas id="Grafico1" class="grafico1" style="height: 600px; width: 500px;"></canvas>
+                        
+                        
                         </div>
 
-                        </div>
-
+                        <div class="grafico-caixa-2">
                         <h1 class="titulo">Quantidade de alertas semanais</h1>
                         <canvas id="Grafico3" class="grafico3" style="height: 20px; width: 50px;"></canvas> 
-                        <div class="mãe">
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim sint beatae, voluptate autem sapiente necessitatibus perspiciatis aliquid odit nulla 
-                            minima expedita ipsum consequuntur dicta nam explicabo culpa pariatur, ad accusamus.</p>
-                        
-                    </div>
+                            <div class="mãe">
+                                <p></p>
+                            </div>
+                        </div>
                 </div>
             </div>
         </div>
@@ -77,21 +88,23 @@
     var Grafico2 = document.getElementById('Grafico2');
     var Grafico3 = document.getElementById('Grafico3');
 
-    new Chart(Grafico1, {
+
+    Grafico1 = new Chart(Grafico1, {
                 type: 'line',
                 data: {
                     labels: ['06:00','07:00','08:00','09:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00'],
                     datasets: [{
-                        label: 'Temperatura',
-                        data: [17, 17,19,20,20,23,31,27,29,25,22],
+                        label: 'Temperatura #1',
+                        data: [17, 17,19,20,20,23,31,27,29,25,27],
                         backgroundColor: ['rgb(253, 43, 86, 0.8)'],
                         borderColor: ['rgba(255, 99, 132, 1)'],
-                        borderWidth: 1,
-                        barThickness: 100,
+                        borderWidth: 5,
+                        barThickness: 700,
                     }]
                 },
                 options: {
                     responsive: true,
+                    
                     plugins: {
                         legend: {
                             display: true
@@ -100,11 +113,12 @@
                     scales: {
                         y: {
                             beginAtZero: true
+                            
                         }
                     }
                 }
             });
-    new Chart(Grafico2, {
+    Grafico2 = new Chart(Grafico2, {
         type: 'doughnut',
         data:{
             datasets: [{
@@ -117,11 +131,12 @@
                     plugins: {
                         legend: {
                             display: true
+                            
                         }}
                     }}]
                 }});
 
-    new Chart(Grafico3, {
+    Graf3 = new Chart(Grafico3, {
     type: 'bar',
     data: {
         labels: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
@@ -149,4 +164,3 @@
     }
 });
 </script>
-

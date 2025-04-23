@@ -1,139 +1,274 @@
 
 body {
-    font-family: Helvetica, sans-serif;
-    }
-
-.img-bg{
-      background-image: url('../Imagens/login-bg.jpg');
-      background-size: contain;
-      filter: blur(4px);
-      position: fixed;
-      margin: -10px 0px 0px -10px;
-      
-      width: 100vw;
-      height: 100vw;
-      z-index: -1;
+  font-family: Helvetica, sans-serif;
   }
+.img-bg{
+    background-image: url('../Imagens/login-bg.jpg');
+    background-size: contain;
+    filter: blur(4px);
+    position: fixed;
+    margin: -10px 0px 0px -10px;
+    
+    width: 100vw;
+    height: 100vw;
+    z-index: -2;
+}
+.grafico-caixa .titulo{
+text-align: center;
+font-size: 22px;
+font-family: 'roboto';
+}
+.grafico-caixa1 .titulo{
+text-align: center;
+font-size: 50px;
+font-family: 'roboto';
+padding: 0;
+margin: 0;
+margin-bottom: 10px;
+}
 
 .container {
-    display: flex;
-    flex-direction: row;
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    margin: -10px 0px -10px -10px
-    }
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  margin: -10px 0px -10px -10px
+}
 
 .usuario img{
-        height: 100px;
-        width: 100%;
-        padding: 0px 0px 10px 0px;
-    }
+      height: 100px;
+      width: 100%;
+      padding: 0px 0px 10px 0px;
+}
 
 .sidebar {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-evenly;
-    background-color: #CDD6CB;
-    width: 200px;
-    padding: 20px;
-    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  background-color: #CDD6CB;
+  width: 200px;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+}
 
 .navbar-log a,
 .sair a {
-    display: block;
-    color: rgba(27, 28, 29);
-    font-size: 25px;
-    text-decoration: none;
-    margin-bottom: 15px;
-    transition: all 0.3s ease-in-out;
-  }
+  display: block;
+  color: rgba(27, 28, 29);
+  font-size: 25px;
+  text-decoration: none;
+  margin-bottom: 15px;
+  transition: all 0.3s ease-in-out;
+}
 
 .navbar-log a:hover,
 .sair a:hover {
-    color: rgb(240, 91, 37);
-  }
+  color: rgb(240, 91, 37);
+}
 
 .conteudo {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    padding: 30px;
-    overflow-y: auto;
-  }
-
-.navbar-centro{
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
+  flex-grow: 1;
+  padding: 30px;
+  overflow-y: auto;
+}
+
+.navbar-centro{
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: space-evenly;
 }
 
 .navbar-centro a {
-    background-color:  #CDD6CB;
-    color: rgba(27, 28, 29);
-    font-size: 25px;
-    text-decoration: none;
-    padding: 15px;
-    border-radius: 8px;
-    transition: all 0.3s ease-in-out;
-    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
-  }
+  background-color:  #CDD6CB;
+  color: rgba(27, 28, 29);
+  font-size: 25px;
+  text-decoration: none;
+  padding: 15px;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+}
 
 .navbar-centro a:hover{
-  background-color: rgb(240, 91, 37);
+background-color: rgb(240, 91, 37);
 }
 
 .grafico {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    background-color:  #CDD6CB;
-    padding: 20px;
-    border-radius: 8px;
-    margin-bottom: 40px;
-  }
-.titulo{
-  width: fit-content;
-}
-.grafico-caixa{
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  height: 500px;
-  width: 300px;
-  background-color: rgb(209, 203, 203);
-  margin: 50px;
-  padding: 50px;
-  padding-bottom: 10px;
-  border-radius: 30px;
+  justify-content: flex-start;
+  background-color:  #CDD6CB;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 40px;
+}
+.grafico-caixa{
+display: flex;
+flex-direction: column;
+height: 248px;
+width: 210px;
+background-color: rgb(209, 203, 203);
+margin: 10px;
+padding: 50px;
+padding-bottom: 10px;
+border-radius: 8px;
+}
+.grafico-caixa1{
+display: flex;
+flex-direction: column;
+height: 570px;
+width: 820px;
+background-color: rgb(209, 203, 203);
+margin: 10px;
+padding: 50px;
+padding-bottom: 15px;
+border-radius: 8px;
+}
+.grafico-caixa-2{
+padding: 10px;
+height: 900px;
+width: 1830px;
+border-radius: 8px;
+background-color:rgb(209, 203, 203);
+margin-bottom: 100px;
+}
+.grafico-caixa-pizza{
+display: flex;
+align-self: center;
+flex-direction: column;
+height: 615px;
+padding: 10px;
+margin-bottom: 20px;
+background-color: rgb(209, 203, 203);
+border-radius: 8px;
+}
+.temp-media-atual{
+display: flex;
+flex-direction: column;
+height: fit-content;
 }
 .grafico-caixa-pai{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  height: 600px;
+display: flex;
+flex-direction: row;
+align-content: space-between;
+width: 1880px;
+height: 670px;
 }
 .grafico h2 {
-    margin-bottom: 20px;
-  }
+  margin-bottom: 20px;
+}
+
+/*Temperatura Atual Numero*/
+.temp-atual{
+font-family: 'Roboto';
+font-size: 80px;
+font-weight: bold;
+text-align: center;
+justify-content:  center;
+margin-top: 50px;
+color: rgb(255, 145, 0);
+}
+.temp-media{
+font-family: 'Roboto';
+font-size: 80px;
+font-weight: bold;
+text-align: center;
+justify-content: center;
+margin-top: 20px;
+color: green;
+}
+/*Caixa dos Botoẽs*/
+.silo-button{
+position: absolute;
+top: 20px;
+left: 300px;
+
+display: flex;
+flex-direction: column;
+
+justify-self: center;
+align-self: center;
+padding: 50px;
+padding-top: 10px;
+
+background-color: #cdd6cbc4;
+text-align: center;
+border-radius: 15px;
+
+width: fit-content;
+
+z-index: 2;
+}
+/*Texto dos Botões*/
+.silo-button p{
+font-size: 30px;
+margin: 10px;
+}
+/*Orientação dos Botões*/
+.silo-button .botoes{
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+gap: 20px;
+}
+/*Estilização dos Botões*/
+.botoes button{
+height: 70px;
+width: 70px;
+font-size: 22px;
+
+font-family: 'Roboto';
+font-weight: bolder;
+
+border: 2px ;
+border-radius: 10px;
+background-color: rgb(136, 185, 155);
+}
+.botoes .total{
+width: 130px;
+height: 80px;
+background-color: rgb(112, 170, 112); 
+font-size: 25px; 
+font-family: Helvetica;
+}
+.botoes button:hover{
+background-color: rgb(89, 133, 106);
+}
+
+.botoes .total:hover{
+background-color: rgb(26, 146, 26); 
+
+}
+.botoes .navbar-centro{
+width: 130px;
+height: 80px;
+background-color: rgb(112, 170, 112); 
+font-size: 25px; 
+font-family: Helvetica;
+}
 
 .mãe {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    margin: 50px 0 0 0;
-    background-color:  #CDD6CB;
-  }
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 50px 0 0 0;
+  background-color:  #CDD6CB;
+}
 .mãe p {
-    font-weight: bolder;
-    font-family: Arial, Helvetica, sans-serif;
-  }
-
-  
+  font-weight: bolder;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.grafico1 {
+font-size: 60px;
+background-color: rgba(255, 255, 255, 0.363);
+font-family: 'Roboto';
+border-radius: 15px;
+}
