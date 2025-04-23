@@ -2,16 +2,17 @@
 body {
   font-family: Roboto, sans-serif;
   }
+
 .img-bg{
-    background-image: url('../Imagens/login-bg.jpg');
-    background-size: contain;
-    filter: blur(4px);
-    position: fixed;
-    margin: -10px 0px 0px -10px;
+  background-image: url('../Imagens/login-bg.jpg');
+  background-size: contain;
+  filter: blur(4px);
+  position: fixed;
+  margin: -10px 0px 0px -10px;
     
-    width: 100vw;
-    height: 100vw;
-    z-index: -2;
+  width: 100vw;
+  height: 100vw;
+  z-index: -2;
 }
 .grafico-caixa .titulo{
 text-align: center;
@@ -37,9 +38,9 @@ margin-bottom: 10px;
 }
 
 .usuario img{
-      height: 100px;
-      width: 100%;
-      padding: 0px 0px 10px 0px;
+  height: 100px;
+  width: 100%;
+  padding: 0px 0px 10px 0px;
 }
 
 .sidebar {
@@ -56,7 +57,7 @@ margin-bottom: 10px;
 .navbar-log a,
 .sair a {
   display: block;
-  color: rgba(27, 28, 29);
+  color: #0A5436;
   font-size: 25px;
   text-decoration: none;
   margin-bottom: 15px;
@@ -66,6 +67,7 @@ margin-bottom: 10px;
 .navbar-log a:hover,
 .sair a:hover {
   color: rgb(240, 91, 37);
+  font-size: 27px;
 }
 
 .conteudo {
@@ -76,7 +78,8 @@ margin-bottom: 10px;
   overflow-y: auto;
 }
 
-.navbar-centro{
+/* FUNÇÕES DO NAVBAR CENTRO FUTURO */
+/* .navbar-centro{
 display: flex;
 flex-direction: column;
 align-items: center;
@@ -96,7 +99,7 @@ justify-content: space-evenly;
 
 .navbar-centro a:hover{
 background-color: rgb(240, 91, 37);
-}
+} */
 
 .grafico {
   display: flex;
@@ -238,7 +241,9 @@ background-color: rgb(112, 170, 112);
 font-size: 25px; 
 font-family: Roboto;
 }
-.botoes button:hover{
+
+/* FUNÇÕES DO NAVBAR CENTRO FUTURO */
+/* .botoes button:hover{
 background-color: rgb(89, 133, 106);
 }
 
@@ -252,9 +257,10 @@ height: 80px;
 background-color: rgb(112, 170, 112); 
 font-size: 25px; 
 font-family: 'Roboto';
-}
+} */
 
-.mãe {
+/* FUNÇÕES PARA DEFINIR UM PARAGRAFO: */
+/* .mãe {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -265,7 +271,8 @@ font-family: 'Roboto';
 .mãe p {
   font-weight: bolder;
   font-family: Arial, 'Roboto', sans-serif;
-}
+} */
+
 .grafico1 {
 font-size: 60px;
 background-color: rgba(255, 255, 255, 0.363);
@@ -311,25 +318,26 @@ color:#DB6901;
   justify-content: center;
   align-items: center;
 }
+
 .tsize1{
   display: flex;
-  color: #2b2b2b;
+
   align-items: center;
   justify-content: center;
-flex-direction: column;
-margin-bottom: 80px;
-
+  flex-direction: column;
+  margin-bottom: 80px;
 }
+
 .tsize2{
 display: flex;
-color: #2b2b2b;
 margin-bottom: 55px;
 }
+
 .tsize3{
 display: flex;
-color: #2b2b2b;
 margin-top: 100px;
 }
+
 .tituloAlerta{
   display: flex;
   color: #2b2b2b;
@@ -337,4 +345,14 @@ margin-top: 100px;
   font-family: 'Roboto';
   justify-content: center;
   align-items: center;
+}
+
+::-webkit-scrollbar{
+  width: 20px;
+  background-color:#FAF2FF;
+}
+
+::-webkit-scrollbar-thumb{
+  background-color: #0A5436;
+  border-radius: 5px;
 }

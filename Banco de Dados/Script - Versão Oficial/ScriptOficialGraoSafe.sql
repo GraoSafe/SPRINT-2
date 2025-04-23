@@ -1,7 +1,6 @@
 -- CRIANDO O BANCO DE DADOS.
 CREATE DATABASE GraoSafe;
 USE GraoSafe;
-DROP DATABASE GraoSafe;
 
 -- CRIAÇÃO DA TABELA CLIENTE.
 CREATE TABLE cliente(
@@ -71,10 +70,10 @@ CONSTRAINT fkSensorDado FOREIGN KEY (fkSensor) REFERENCES sensorLM35(idSensor)
 );
 
 -- INSERINDO DADOS DA TABELA CLIENTE.
-INSERT INTO cliente (nomeEmpresa, cnpj_cpf, dtCadastro, email, senha, telefone) VALUES
-('Empresa ABC', 12345678000195,'2015-05-14 15:30:00','empresaabc@gmail.com', 'senha123', 5511987654321),
-('Tech Solutions', 98765432000100,'2019-11-25 13:00:00','techsolutions@hotmail.com', 'senha456', 5511976543210),
-('Logistica LTDA', 19283746500010,'2023-03-17 18:30:00','logistica.ltda@outlook.com', 'senha789', 5511965432109); 
+INSERT INTO cliente (nomeEmpresa, cnpj_cpf, dtCadastro, email, senha, telefone, fkFilial) VALUES
+('Empresa ABC', 12345678000195,'2015-05-14 15:30:00','empresaabc@gmail.com', 'senha123', 5511987654321,1),
+('Tech Solutions', 98765432000100,'2019-11-25 13:00:00','techsolutions@hotmail.com', 'senha456', 5511976543210,1),
+('Logistica LTDA', 19283746500010,'2023-03-17 18:30:00','logistica.ltda@outlook.com', 'senha789', 5511965432109,1); 
 
 INSERT INTO recSenha (novaSenha, dtTroca, fkCliRec)VALUES
 ('novaSenha123', '2025-04-20 10:15:00', 1),
@@ -136,7 +135,7 @@ lm.dtManutencao AS 'Data de manutenção do sensor',
 c.dtCadastro AS 'Quando se cadastrou'
 FROM cliente AS c JOIN endereco AS e ON e.fkCliente = c.idCliente
 JOIN silo AS s ON s.fkClienteSilo = c.idCliente
-JOIN SensorLM35 AS lm ON lm.fkSilo = s.idSilo;
+JOIN sensorLM35 AS lm ON lm.fkSilo = s.idSilo;
 
 -- EXIBINDO DADOS DAS EMPRESAS QUE TROCARAM DE SENHA.
 SELECT c.idCliente,

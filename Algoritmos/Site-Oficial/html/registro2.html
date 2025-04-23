@@ -9,7 +9,7 @@
   <link href='https://fonts.googleapis.com/css?family=Jost' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
-
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
   <title>Faça seu login!</title>
 </head>
 
@@ -79,6 +79,9 @@
 </body>
 
 </html>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js">
+
+</script>
 
 <script>
 
@@ -90,22 +93,57 @@
     var cep = input_cep.value;
 
     if (uf == "" || rua == "" || bairro == "" || cidade == "" || cep == "") {
+      Toastify({
+      text: "Alert: Preencha todos os campos!",
+      duration: 3000,
+      style: {
+      background: "linear-gradient(to right, #FF8C00, #FF4500)",
+        },
+      }).showToast();
       div_Login_Alert.innerHTML = `<span style="color: red;">* Preencha todos os campos para proseguir</span>`
     }
     else if(uf != uf.toUpperCase()) {
       ufCarac.innerHTML = `<span style="color: red;">* UF inválido. Apenas letras maiúsculas.</span>`
     }
     else if  (!/^[A-Za-zÀ-ÿ\s]+$/.test(cidade)) {
+      Toastify({
+      text: "Alert: Campos Inválidos!",
+      duration: 3000,
+      style: {
+      background: "linear-gradient(to right, #FF8C00, #FF4500)",
+        },
+      }).showToast();
       cidadeCarac.innerHTML = `<span style="color: red;">* Inválido, apenas letras</span>`
     }
     else if  (!/^[A-Za-zÀ-ÿ\s]+$/.test(bairro)) {
+      Toastify({
+      text: "Alert: Campos Inválidos!",
+      duration: 3000,
+      style: {
+      background: "linear-gradient(to right, #FF8C00, #FF4500)",
+        },
+      }).showToast();
       bairroCarac.innerHTML = `<span style="color: red;">* Inválido, apenas letras</span>`
     }
     else if  (!/^[A-Za-zÀ-ÿ\s]+$/.test(rua)) {
+      Toastify({
+      text: "Alert: Campos Inválidos!",
+      duration: 3000,
+      style: {
+      background: "linear-gradient(to right, #FF8C00, #FF4500)",
+        },
+      }).showToast();
       ruaCarac.innerHTML = `<span style="color: red;">* Inválido, apenas letras</span>`
     }
     else {
-      window.location.href = "./dashboard.html"
+      Toastify({
+      text: "Cadastro realizado com sucesso!",
+      duration: 3000,
+      style: {
+      background: "linear-gradient(to right,  #3CB371, #00FF7F)",
+        },
+      }).showToast();
+      window.location.href = "./login.html"
     }
   }
 
