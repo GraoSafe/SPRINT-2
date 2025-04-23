@@ -119,7 +119,7 @@
 
             <input id="input_nome" class="nome" type="text" placeholder="Nome">
 
-            <input id="input_email" class="email" type="text" placeholder="Email">
+            <input id="input_email" class="email" type="text" placeholder="E-mail">
             <div id="div_email"></div><br>
 
             <input id="input_mensagem" class="mensagem" type="text" placeholder="Digite sua mensagem">
@@ -160,7 +160,6 @@
         else if (!email.includes('@') || !email.includes('.') || email !== email.toLowerCase()) {
             div_email.innerHTML = `<span style="color: red;">* Email incorreto.</span>`
         }
-
         else {
             Toastify({
                 text: "Mensagem Enviada!",

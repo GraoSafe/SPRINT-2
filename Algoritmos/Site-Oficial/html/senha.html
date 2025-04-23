@@ -27,21 +27,21 @@
           <h1>VOLTAR</h1>
         </div>
         <div class="card card-login">
-          <h2>Crie a Sua Senha!</h2>
+          <h2>Crie sua nova senha!</h2>
 
           <div class="formulario">
             <div class="campo">
-              <span>Email para recuperação de senha:</span>
-              <input id="input_email" type="text" placeholder="Digite seu email"><br>
+              <span>E-mail para recuperação de senha:</span>
+              <input id="input_email" type="text" placeholder="Digite seu e-mail"><br>
               <div id="msgEmail"></div>
             </div>
             <div class="campo">
-              <span>Insira uma nova Senha: <br> Senha deve conter caracteres especiais. ("!", "@", "#", "_", "-", ".")</span>
+              <span>Insira uma nova senha: <br> Senha deve conter caracteres especiais. ("!", "@", "#", "_", "-", ".")</span>
               <input id="input_senha1" type="text" placeholder="Digite sua senha"><br>
               <div id="msgSenha"></div>
             </div>
             <div class="campo">
-              <span>Repetir nova Senha:</span>
+              <span>Repetir nova senha:</span>
               <input id="input_senha2" type="text" placeholder="Digite sua senha"><br>
               <div id="msgNovaSenha"></div>
             </div>
@@ -78,9 +78,9 @@
       }).showToast();
     }
     else if(!email.includes('@') || !email.includes('.')) {
-      msgEmail.innerHTML  = `<span style="color: red;">Email inválido. Email deve conter "@" e ".".</span>`;
+      msgEmail.innerHTML  = `<span style="color: red;">E-mail inválido. E-mail deve conter "@" e ".".</span>`;
       Toastify({
-      text: "Alert: Campos Inválidos! Email deve conter @ e .",
+      text: "Alert: Campos Inválidos! E-mail deve conter @ e .",
       duration: 3000,
       style: {
       background: "linear-gradient(to right, #FF8C00, #FF4500)",
@@ -88,9 +88,9 @@
       }).showToast();
     }
     else if (email != email.toLowerCase()) {
-      msgEmail.innerHTML = `<span style="color: red;">Email inválido. Email deve conter apenas letras minúsculas.</span>`;
+      msgEmail.innerHTML = `<span style="color: red;">E-mail inválido. E-mail deve conter apenas letras minúsculas.</span>`;
       Toastify({
-      text: "Alert: Email inválido! Email deve conter apenas letras minúsculas",
+      text: "Alert: E-mail inválido! E-mail deve conter apenas letras minúsculas",
       duration: 3000,
       style: {
       background: "linear-gradient(to right, #FF8C00, #FF4500)",

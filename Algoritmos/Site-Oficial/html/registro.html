@@ -29,7 +29,7 @@
         </div>
 
         <div class="card card-login">
-          <h2>Crie a Sua Conta!</h2>
+          <h2>Crie a sua conta!</h2>
 
           <div class="formulario">
 
@@ -43,7 +43,7 @@
               <span id="span_email">
                 <div id="div_email_verify" class="verify-text"></div>E-mail:
               </span>
-              <input id="input_email" type="text" placeholder="Digite seu email"><br>
+              <input id="input_email" type="text" placeholder="Digite seu e-mail"><br>
               <div id="emailCarac"></div>
             </div>
 
@@ -66,7 +66,7 @@
             <div class="campo">
               <span id="span_telefone">TELEFONE:</span>
               <input maxlength="11" minlength="10" id="input_telefone" type="text"
-                placeholder="Digite seu telefone"><br>
+                placeholder="Digite seu telefone ex:11912345678 "><br>
               <div id="telefoneCarac"></div>
             </div>
             <div id="div_Login_Alert" class="verify-text"></div>
@@ -105,7 +105,7 @@
       }).showToast();
     }
     else if (!email.includes('@') || !email.includes('.')) {
-      emailCarac.innerHTML = `<span style="color: red;">* Email inválido. Deve conter "@" e ".". </span>`;
+      emailCarac.innerHTML = `<span style="color: red;">* E-mail inválido. Deve conter "@" e ".". </span>`;
       Toastify({
       text: "Alert: Campos Inválidos! Deve conter @ e .",
       duration: 3000,
