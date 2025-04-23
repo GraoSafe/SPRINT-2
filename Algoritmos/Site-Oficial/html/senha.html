@@ -36,13 +36,13 @@
               <div id="msgEmail"></div>
             </div>
             <div class="campo">
-              <span>Insira uma nova Senha:</span>
-              <input id="input_senha1" type="password" placeholder="Digite sua senha"><br>
+              <span>Insira uma nova Senha: <br> Senha deve conter caracteres especiais. ("!", "@", "#", "_", "-", ".")</span>
+              <input id="input_senha1" type="text" placeholder="Digite sua senha"><br>
               <div id="msgSenha"></div>
             </div>
             <div class="campo">
               <span>Repetir nova Senha:</span>
-              <input id="input_senha2" type="password" placeholder="Digite sua senha"><br>
+              <input id="input_senha2" type="text" placeholder="Digite sua senha"><br>
               <div id="msgNovaSenha"></div>
             </div>
             <button onclick="registrar()" class="botao">Registrar</button><br>
@@ -108,7 +108,7 @@
       }).showToast();
     }
     else if (!senha1.includes('!') && !senha1.includes('@') && !senha1.includes('#') && !senha1.includes('_') && !senha1.includes('-') && !senha1.includes('.')) {
-      msgSenha.innerHTML   = `<span style="color: red;">* Senha fraca. Senha deve conter caracteres especiais ("!", "@", "#", "_", "-", ".").</span>`;
+      msgSenha.innerHTML   = `<span style="color: red;">* Senha fraca. Deve conter caracteres especiais.</span>`;
       Toastify({
       text: "Senha fraca! Senha deve conter caracteres especiais",
       duration: 3000,

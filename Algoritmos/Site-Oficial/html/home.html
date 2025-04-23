@@ -117,11 +117,13 @@
 
         <div class="dados">
 
-            <input class="nome" type="text" placeholder="Nome">
+            <input id="input_nome" class="nome" type="text" placeholder="Nome">
 
-            <input class="email" type="text" placeholder="Email">
+            <input id="input_email" class="email" type="text" placeholder="Email">
+            <div id="div_email"></div><br>
 
-            <input class="mensagem" type="text" placeholder="Digite sua mensagem">
+            <input id="input_mensagem" class="mensagem" type="text" placeholder="Digite sua mensagem">
+            <div id="div_mensagem"></div><br>
 
             <button class="enviar" onclick="enviar()">Enviar</button>
         </div>
@@ -142,17 +144,31 @@
     </div>
 
 </body>
+
 </html>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js">
 </script>
 <script>
-    function enviar(){
-        Toastify({
-      text: "Mensagem Enviada!",
-      duration: 3000,
-      style: {
-      background: "linear-gradient(to right, #3CB371, #00FF7F)",
-        },
-      }).showToast();
+    function enviar() {
+        var nome = input_nome.value;
+        var email = input_email.value;
+        var mensagem = input_mensagem.value;
+
+        if(nome == "" || email == "" || mensagem == "") {
+            div_mensagem.innerHTML = `<span style="color: red;">* Preencha todos os campos.</span>`
+        }
+        else if (!email.includes('@') || !email.includes('.') || email !== email.toLowerCase()) {
+            div_email.innerHTML = `<span style="color: red;">* Email incorreto.</span>`
+        }
+
+        else {
+            Toastify({
+                text: "Mensagem Enviada!",
+                duration: 3000,
+                style: {
+                    background: "linear-gradient(to right, #3CB371, #00FF7F)",
+                },
+            }).showToast();
+        }
     }
 </script>
