@@ -15,6 +15,16 @@ senha VARCHAR(100) NOT NULL,
 telefone VARCHAR(14) UNIQUE NOT NULL
 );
 
+-- CRIAÇÃO DA TABELA DE RECUPERAÇÃO DE SENHA
+CREATE TABLE recSenha (
+idRecSenha INT AUTO_INCREMENT,
+novaSenha VARCHAR(12) NOT NULL,
+dtTroca DATETIME DEFAULT CURRENT_TIMESTAMP,
+fkCliRec INT,
+PRIMARY KEY (idRecSenha, fkCliRec),
+CONSTRAINT fkRecCli FOREIGN KEY (fkCliRec) REFERENCES cliente(idCliente)
+);
+
 -- CRIAÇÃO DA TABELA ENDEREÇO.
 CREATE TABLE endereco(
 idEndereco INT PRIMARY KEY AUTO_INCREMENT,
@@ -24,7 +34,7 @@ bairro VARCHAR(20) NOT NULL,
 cidade VARCHAR(50) NOT NULL,
 CEP CHAR(8) NOT NULL,
 fkCliente int NOT NULL,
-constraint fkEndeCli FOREIGN KEY (fkCliente) REFERENCES Cliente(idCliente)
+CONSTRAINT fkEndeCli FOREIGN KEY (fkCliente) REFERENCES Cliente(idCliente)
 );
 
 -- CRIAÇÃO DA TABELA SILO.
@@ -63,6 +73,11 @@ INSERT INTO cliente (nomeEmpresa, cnpj_cpf, dtCadastro, email, senha, telefone) 
 ('Empresa ABC', 12345678000195,'2015-05-14 15:30:00','empresaabc@gmail.com', 'senha123', 5511987654321),
 ('Tech Solutions', 98765432000100,'2019-11-25 13:00:00','techsolutions@hotmail.com', 'senha456', 5511976543210),
 ('Logistica LTDA', 19283746500010,'2023-03-17 18:30:00','logistica.ltda@outlook.com', 'senha789', 5511965432109); 
+
+INSERT INTO recSenha (novaSenha, dtTroca, fkCliRec)VALUES
+('novaSenha123', '2025-04-20 10:15:00', 1),
+('novaSenha456', '2025-04-21 09:00:00', 2),
+('novaSenha789', '2025-04-22 14:30:00', 3);
 
 -- INSERINDO DADOS DA TABELA ENDEREÇO.
 INSERT INTO endereco (UF, rua, bairro, cidade, CEP, fkCliente) VALUES
@@ -121,6 +136,16 @@ FROM cliente AS c JOIN endereco AS e ON e.fkCliente = c.idCliente
 JOIN silo AS s ON s.fkClienteSilo = c.idCliente
 JOIN SensorLM35 AS lm ON lm.fkSilo = s.idSilo;
 
+-- EXIBINDO DADOS DAS EMPRESAS QUE TROCARAM DE SENHA
+SELECT c.idCliente,
+c.nomeEmpresa,
+c.email,
+r.novaSenha,
+r.dtTroca
+FROM recSenha r
+JOIN cliente c 
+ON r.fkCliRec = c.idCliente;
+
 -- ATUALIZANDO E DELETANDO DADOS DA EMPRESA TECH SOLUTIONS
 UPDATE endereco SET rua = 'Rua Delta R' WHERE idEndereco = 2;
 UPDATE endereco SET bairro = 'Dos techs' WHERE idEndereco = 2;
@@ -132,4 +157,4 @@ UPDATE endereco SET UF = 'RN' WHERE idEndereco = 2;
 DELETE FROM cliente WHERE idCliente = 1;
 DELETE FROM endereco WHERE idEndereco = 1;
 DELETE FROM silo WHERE idSilo = 1;
-DELETE FROM sensorLM35 WHERE idSensor = 1; 
+DELETE FROM sensorLM35 WHERE idSensor = 1;  
