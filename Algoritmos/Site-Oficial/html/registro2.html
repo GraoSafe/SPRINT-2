@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/login-registro.css">
+  <script src="../javascript/login-reistro.js"></script>
+  <link href='https://fonts.googleapis.com/css?family=Jost' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
+
+  <title>Faça seu login!</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="img-bg">
+    </div>
+    <div class="coluna">
+
+      <div class="container-login">
+
+        <div class="buttom-back">
+          <a href="registro.html"><img src="../Imagens/Seta.png" alt="" class="img-g">
+          </a>
+          <h1>VOLTAR</h1>
+        </div>
+
+        <div class="card card-login">
+          <h2>Continue criando sua conta!</h2>
+
+          <div class="formulario">
+
+            <div class="campo">
+              <span id="span_uf">UF:</span>
+              <input maxlength="2" id="input_uf" type="text"
+                placeholder="Digite seu UF ex: SP"><br>
+              <div id="ufCarac"></div>
+            </div>
+
+            <div class="campo">
+              <span id="span_rua">RUA:</span>
+              <input maxlength="100" id="input_rua" type="text"
+                placeholder="Digite o nome da sua rua"><br>
+              <div id="ruaCarac"></div>
+            </div>
+
+            <div class="campo">
+              <span id="span_telefone">BAIRRO:</span>
+              <input maxlength="50" id="input_bairro" type="text"
+                placeholder="Digite o nome do bairro"><br>
+              <div id="bairroCarac"></div>
+            </div>
+
+            <div class="campo">
+              <span id="span_cidade">CIDADE:</span>
+              <input maxlength="50" id="input_cidade" type="text"
+                placeholder="Digite o nome da cidade"><br>
+              <div id="cidadeCarac"></div>
+            </div>
+
+            <div class="campo">
+              <span id="span_cep">CEP:</span>
+              <input maxlength="8" id="input_cep" type="text"
+                placeholder="Digite o CEP do seu endereço"><br>
+              <div id="cepCarac"></div>
+            </div>
+            <div id="div_Login_Alert" class="verify-text"></div>
+
+            <button class="botao" onclick="Verify_Variables()">Continuar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</body>
+
+</html>
+
+<script>
+
+  function Verify_Variables() {
+    var uf = input_uf.value;
+    var rua = input_rua.value;
+    var bairro = input_bairro.value;
+    var cidade = input_cidade.value;
+    var cep = input_cep.value;
+
+    if (uf == "" || rua == "" || bairro == "" || cidade == "" || cep == "") {
+      div_Login_Alert.innerHTML = `<span style="color: red;">* Preencha todos os campos para proseguir</span>`
+    }
+    else if(uf != uf.toUpperCase()) {
+      ufCarac.innerHTML = `<span style="color: red;">* UF inválido. Apenas letras maiúsculas.</span>`
+    }
+    else if  (!/^[A-Za-zÀ-ÿ\s]+$/.test(cidade)) {
+      cidadeCarac.innerHTML = `<span style="color: red;">* Inválido, apenas letras</span>`
+    }
+    else if  (!/^[A-Za-zÀ-ÿ\s]+$/.test(bairro)) {
+      bairroCarac.innerHTML = `<span style="color: red;">* Inválido, apenas letras</span>`
+    }
+    else if  (!/^[A-Za-zÀ-ÿ\s]+$/.test(rua)) {
+      ruaCarac.innerHTML = `<span style="color: red;">* Inválido, apenas letras</span>`
+    }
+    else {
+      window.location.href = "./dashboard.html"
+    }
+  }
+
+</script>

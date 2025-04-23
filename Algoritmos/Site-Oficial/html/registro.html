@@ -51,7 +51,7 @@
               <span id="span_senha">
                 <div id="div_senha_verify" class="verify-text"></div>Senha:
               </span>
-              <input id="input_senha" type="password" placeholder="Digite sua senha"><br>
+              <input id="input_senha" type="text" placeholder="Digite sua senha"><br>
               <div id="senhaCarac"></div>
             </div>
 
@@ -60,6 +60,13 @@
               <input maxlength="14" minlength="11" id="input_cpf_cnpj" type="text"
                 placeholder="Digite seu CPF/CNPJ"><br>
               <div id="cpf_cnpjCarac"></div>
+            </div>
+
+            <div class="campo">
+              <span id="span_telefone">TELEFONE:</span>
+              <input maxlength="11" minlength="10" id="input_telefone" type="text"
+                placeholder="Digite seu telefone"><br>
+              <div id="telefoneCarac"></div>
             </div>
             <div id="div_Login_Alert" class="verify-text"></div>
 
@@ -85,9 +92,9 @@
     var email = input_email.value;
     var senha = input_senha.value;
     var cpfCNPJ = input_cpf_cnpj.value;
+    var telefone = input_telefone.value;
 
-    if (nome == "" || email == "" || senha == "" || cpfCNPJ == "") {
-      cpf_cnpjCarac.innerHTML = `<span style="color: red;">* Preencha todos os campos</span>`;
+    if (nome == "" || email == "" || senha == "" || cpfCNPJ == "" || telefone == "") {
       Toastify({
       text: "Alert: Preencha todos os campos!",
       duration: 3000,
@@ -110,7 +117,6 @@
       emailCarac.innerHTML += `<span style="color: red;">* Apenas letras minúsculas. </span>`
     }
     else if (senha.length < 6 || senha.length > 12) {
-      senhaCarac.innerHTML = `<span style="color: red;">* Senha deve conter entre 6 e 12 caracteres.</span>`;
       Toastify({
       text: "Alert: Campos Inválidos! Senha deve conter entre 6 e 12 caracteres",
       duration: 3000,
@@ -120,12 +126,11 @@
       }).showToast();
     }
     else if (!senha.includes('!') && !senha.includes('@') && !senha.includes('#') && !senha.includes('_') && !senha.includes('-') && !senha.includes('.')) {
-      senhaCarac.innerHTML = `    `;
+      senhaCarac.innerHTML = `<span style="color: red;">* Senha fraca. Senha deve conter caracteres especiais. ex: "!", "@", "#", "_", "-", "."</span>`;
     }
     else if (cpfCNPJ.length !== 11 && cpfCNPJ.length !== 14) {
-      cpf_cnpjCarac.innerHTML = `<span style="color: red;">CPF ou CNPJ inválido.</span>`;
       Toastify({
-      text: "Alert: Campos Inválidos! CPF ou CNPJ inválido ",
+      text: "Alert: Campos Inválidos! CPF ou CNPJ inválido",
       duration: 3000,
       style: {
       background: "linear-gradient(to right, #FF8C00, #FF4500)",
@@ -133,9 +138,18 @@
       }).showToast();
     }
     else if (/[^0-9]/.test(cpfCNPJ)) {
-      cpf_cnpjCarac.innerHTML = `<span style="color: red;">CPF ou CNPJ inválido. Apenas números.</span>`
       Toastify({
-      text: "Alert: Campos Inválidos! CPF ou CNPJ inválido",
+        
+      text: "Alert: Campos Inválidos! CPF ou CNPJ deve conter apenas números.",
+      duration: 3000,
+      style: {
+      background: "linear-gradient(to right, #FF8C00, #FF4500)",
+        },
+      }).showToast();
+    }
+    else if (/[^0-9]/.test(telefone)) {
+      Toastify({
+      text: "Alert: Campos inválidos. Apenas números.",
       duration: 3000,
       style: {
       background: "linear-gradient(to right, #FF8C00, #FF4500)",
@@ -150,7 +164,7 @@
       background: "linear-gradient(to right,  #3CB371, #00FF7F)",
         },
       }).showToast();
-      window.location.href = "#";
+      window.location.href = "./registro2.html";
     }
   }
 
